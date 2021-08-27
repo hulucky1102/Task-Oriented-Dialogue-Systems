@@ -1,0 +1,447 @@
+version: "2.0"
+stories:
+
+# 开灯的各种Story场景
+- story: open lamp--具体灯具设备指明
+  steps:
+  - intent: Control-Lamp_Open
+    entities:
+    - device: 主卧灯
+    - address: 主卧
+    - operation: 打开
+  - action: action_open_lamp
+
+- story: open Lamp2--未指明具体灯具设备/询问具体设备/确认灯具/执行
+  steps:
+  - intent: Control-Lamp_Open
+    entities:
+    - device: 灯
+    - operation: 打开
+  - action: action_open_lamp
+  - intent: inform_lamp
+    entities:
+    - device: 灯
+    - address: 客厅
+  - action: action_open_lamp
+
+- story: open Lamp2--未指明具体灯具设备/询问具体设备/确认房间/执行
+  steps:
+  - intent: Control-Lamp_Open
+    entities:
+    - device: 灯
+    - operation: 打开
+  - action: action_open_lamp
+  - intent: inform_room
+    entities:
+    - address: 客厅
+  - action: action_open_lamp
+
+- story: open Lamp2--未指明具体灯具设备/询问具体设备/确认所有灯具/执行
+  steps:
+  - intent: Control-Lamp_Open
+    entities:
+    - device: 灯
+    - operation: 打开
+  - action: action_open_lamp
+  - intent: inform_range
+    entities:
+    - range: 所有
+  - action: action_open_lamp
+
+
+- story: open Lamp3--指明所有的灯
+  steps:
+  - intent: Control-Lamp_Open
+    entities:
+    - range: 所有
+    - device: 灯
+    - operation: 打开
+  - action: action_open_lamp
+
+- story: 硬编码回复灯具打开--澄清具体设备/用户确认设备/执行
+  steps:
+  - intent: Control-Lamp_Open
+    entities:
+    - operation: 开
+    - device: 灯
+  - action: action_open_lamp
+  - intent: inform_lamp
+    entities:
+    - device: 灯
+    - address: 客厅
+  - action: action_open_lamp
+
+- story: 硬编码回复灯具打开--澄清具体设备/用户确认房间/执行
+  steps:
+  - intent: Control-Lamp_Open
+    entities:
+    - operation: 开
+    - device: 灯
+  - action: action_open_lamp
+  - intent: inform_room
+    entities:
+    - address: 客厅
+  - action: action_open_lamp
+
+# 关灯的Story场景
+- story: close Lamp1--具体指明灯具设备
+  steps:
+  - intent: Control-Lamp_Close
+    entities:
+    - device: 灯
+    - address: 餐厅
+    - operation: 关闭
+  - action: action_close_lamp
+
+- story: close Lamp2--未指明灯具设备，需要进一步澄清
+  steps:
+  - intent: Control-Lamp_Close
+    entities:
+    - device: 灯
+    - operation: 关闭
+  - action: action_close_lamp
+  - intent: inform_lamp
+    entities:
+    - device: 灯
+    - address: 餐厅
+  - action: action_close_lamp
+
+- story: close Lamp2--未指明灯具设备，澄清全部的灯
+  steps:
+  - intent: Control-Lamp_Close
+    entities:
+    - device: 灯
+    - operation: 关闭
+  - action: action_close_lamp
+  - intent: inform_range
+    entities:
+    - range: 所有
+  - action: action_close_lamp
+
+
+- story: close Lamp3--指明所有的灯具设备
+  steps:
+  - intent: Control-Lamp_Close
+    entities:
+    - device: 灯
+    - range: 所有
+    - operation: 关闭
+  - action: action_close_lamp
+
+- story: 硬编码回复控制灯具关闭
+  steps:
+  - intent: Control-Lamp_Close
+    entities:
+    - operation: 关
+    - device: 灯
+  - action: action_close_lamp
+  - intent: inform_lamp
+    entities:
+    - device: 灯
+    - address: 餐厅
+  - action: action_close_lamp
+
+- story: 硬编码回复控制灯具关闭 回复全部的情况
+  steps:
+  - intent: Control-Lamp_Close
+    entities:
+    - operation: 关
+    - device: 灯
+  - action: action_close_lamp
+  - intent: inform_range
+    entities:
+    - range: 所有
+  - action: action_close_lamp
+
+# 灯光亮度调节相关Story
+- story: 调整灯的亮度(无指明具体灯光设备)/确认房间/执行
+  steps:
+  - intent: Control-Lamp_Lightness
+    entities:
+    - operation: 调高
+    - device: 灯
+  - action: action_controllamplightness
+  - intent: inform_room
+    entities:
+    - address: 主卧
+  - action: action_controllamplightness
+
+- story: 调低灯的亮度(无指明具体灯光设备)/确认房间/执行
+  steps:
+  - intent: Control-Lamp_Lightness
+    entities:
+    - operation: 调低
+    - device: 灯
+  - action: action_controllamplightness
+  - intent: inform_room
+    entities:
+    - address: 客厅
+  - action: action_controllamplightness
+
+- story: 调低灯的亮度(澄清具体灯具设备)/确认设备/执行
+  steps:
+  - intent: Control-Lamp_Lightness
+    entities:
+    - operation: 调低
+    - device: 灯光
+  - action: action_controllamplightness
+  - intent: inform_room
+    entities:
+    - address: 主卧
+  - action: action_controllamplightness
+
+- story: 调整灯的亮度(指明具体房间灯光设备)/执行
+  steps:
+  - intent: Control-Lamp_Lightness
+    entities:
+    - operation: 调高
+    - device: 灯
+    - address: 客厅
+  - action: action_controllamplightness
+
+- story: 调整灯的亮度(指明具体房间灯光设备 最大亮度&中等亮度&最小亮度)/执行
+  steps:
+  - intent: Control-Lamp_Lightness
+    entities:
+    - sensorvalue: 最大亮度
+    - device: 灯
+    - address: 客厅
+  - action: action_controllamplightness
+
+
+- story: interactive_story_1 调整灯光亮度/打开/调到最亮/调到最暗/询问设备/确认设备/执行
+  steps:
+  - intent: Control-Lamp_Open
+    entities:
+    - operation: 打开
+    - device: 灯
+    - address: 主卧
+  - action: action_open_lamp
+  - intent: Control-Lamp_Lightness
+    entities:
+    - sensorvalue: 最大亮度
+  - action: action_controllamplightness
+  - intent: Control-Lamp_Lightness
+    entities:
+    - sensorvalue: 最低亮度
+  - action: action_controllamplightness
+
+- story: interactive_story_1 打开台灯/台灯调亮
+  steps:
+  - intent: Control-Lamp_Open
+    entities:
+    - operation: 打开
+    - device: 台灯
+  - action: action_open_lamp
+  - intent: Control-Lamp_Lightness
+    entities:
+    - device: 台灯
+    - operation: 调亮
+  - action: action_controllamplightness
+
+
+- story: 打开XX灯/最低亮度
+  steps:
+  - intent: Control-Lamp_Open
+    entities:
+    - operation: 打开
+    - device: 灯
+    - address: 厕所
+  - action: action_open_lamp
+  - intent: inform_sensorvalue
+    entities:
+    - sensorvalue: 最低亮度
+  - action: action_controllamplightness
+
+- story: 打开XX灯/最大亮度(intent识别为inform sensorvalue情况)
+  steps:
+  - intent: Control-Lamp_Open
+    entities:
+    - operation: 打开
+    - device: 灯
+    - address: 主卧
+  - action: action_open_lamp
+  - intent: inform_sensorvalue
+    entities:
+    - sensorvalue: 最大亮度
+  - action: action_controllamplightness
+
+- story: 打开厨房灯/最大亮度(intent识别为Control-Lamp_Lightness情况)/正常回复
+  steps:
+  - intent: Control-Lamp_Open
+    entities:
+    - operation: 打开
+    - device: 灯
+    - address: 厨房
+  - action: action_open_lamp
+  - intent: Control-Lamp_Lightness
+    entities:
+    - sensorvalue: 最大亮度
+  - action: action_controllamplightness
+
+# 灯光颜色与灯光模式对话逻辑相关
+- story: 控制灯光模式(槽位信息齐全)/直接执行Action
+  steps:
+  - intent: Control-Lamp_Mode
+    entities:
+    - device: 灯
+    - address: 客厅
+    - mode: 明亮模式
+  - action: lampmode_form
+
+- story: 控制灯光颜色(槽位信息齐全)/直接执行Action
+  steps:
+  - intent: Control-Lamp_Color
+    entities:
+    - device: 灯
+    - color: 冷色
+    - address: 客厅
+  - action: lampcolor_form
+
+- story: 控制灯光的模式(灯具信息齐全 目标模式信息不全，需要澄清目标信息)/询问需要调整成什么模式/确认执行
+  steps:
+  - intent: Control-Lamp_Mode
+    entities:
+    - device: 灯
+    - mode: 温馨模式
+    - address: 客厅
+  - action: lampmode_form
+
+- story: 控制灯光的颜色(灯具信息齐全 目标模式信息不全，需要澄清目标信息)/询问需要调整成什么模式/确认执行
+  steps:
+  - intent: Control-Lamp_Color
+    entities:
+    - device: 灯
+    - address: 客厅
+    - color: 红色
+  - action: lampcolor_form
+
+
+- story: 控制灯光的模式(灯具信息不齐全 目标模式信息不全，需要逐个澄清)/询问房间(具体灯具)/询问需要调整成什么模式/确认执行
+  steps:
+  - intent: Control-Lamp_Mode
+    entities:
+    - device: 灯
+    - address: 客厅
+    - mode: 明亮模式
+  - action: lampmode_form
+
+
+- story: 控制灯光的颜色(灯具信息不齐全 目标模式信息不全，需要逐个澄清)/询问房间(具体灯具)/询问需要调整成什么模式/确认执行
+  steps:
+  - intent: Control-Lamp_Color
+    - device: 灯
+    - address: 客厅
+    - color: 暖色
+  - action: lampcolor_form
+
+- story: 控制灯光的模式(灯具信息缺少指定房间信息)
+  steps:
+  - intent: Control-Lamp_Mode
+    entities:
+    - device: 灯
+  - action: lampmode_form
+    entities:
+      - mode: 明亮模式
+  - intent: inform_room
+    entities:
+      - address: 主卧
+  - action: lampmode_form
+
+- story: 控制灯光的颜色(灯具信息缺少指定房间信息)
+  steps:
+  - intent: Control-Lamp_Color
+    entities:
+    - device: 灯
+  - action: lampcolor_form
+    entities:
+      - color: 暖色
+  - intent: inform_room
+    entities:
+      - address: 客卧
+  - action: lampcolor_form
+
+- story: 控制灯光的颜色 (切换色调，询问色调)
+  steps:
+  - intent: Control-Lamp_Color
+    entities:
+    - device: 灯
+    - address: 客厅
+    - target: 颜色
+    - operation: 调整
+    - color: 红色
+  - action: lampcolor_form
+  - intent: Control-Lamp_Color
+    entities:
+    - operation: 切换
+    - target: 色调
+    - color: 暖色
+  - action: lampcolor_form
+
+# 灯光定时操作相关对话逻辑
+- story: 控制灯光定时操作，所有信息齐全/无需澄清槽位信息/直接执行
+  steps:
+  - intent: Control-Lamp_Timing
+    entities:
+    - time: 一小时
+    - operation: 打开
+    - device: 灯
+    - address: 主卧
+  - action: lamptiming_form
+
+- story: 控制灯光定时操作 定时关闭客厅灯(灯具指明)/澄清定时时间
+  steps:
+  - intent: Control-Lamp_Timing
+    entities:
+    - operation: 关闭
+    - device: 灯
+    - address: 客厅
+    - time: 两小时
+  - action: lamptiming_form
+
+- story: 控制灯光定时操作 定时关闭灯(灯具信息未指明 其他信息齐全)/澄清具体设备/用户回复具体 [灯具] /继续执行
+  steps:
+  - intent: Control-Lamp_Timing
+    entities:
+    - time: 一小时
+    - operation: 关闭
+    - device: 灯
+  - action: lamptiming_form
+  - intent: inform_room
+      entities:
+          - address: 主卧
+  - action: lamptiming_form
+
+- story: 隐式表达想要调整灯光亮度/询问具体灯具/询问是否调整/确认/亮度调整
+  steps:
+  - intent: latent_control_lamplight
+  - action: action_latent_control_lamplight
+  - intent: inform_lamp
+  - action: action_latent_control_lamplight
+  - intent: affirm
+  - action: action_affirm_controllamplight
+
+- story: 隐式表达想要调整灯光亮度/询问具体灯具/询问是否调整/拒绝/槽位清空
+  steps:
+  - intent: latent_control_lamplight
+  - action: action_latent_control_lamplight
+  - intent: inform_lamp
+  - action: action_latent_control_lamplight
+  - intent: deny
+  - action: action_deny_controllamplight
+
+
+- story: 隐式表达想要调整灯光亮度/询问是否调整/确认/亮度调整
+  steps:
+  - intent: latent_control_lamplight
+  - action: action_latent_control_lamplight
+  - intent: affirm
+  - action: action_affirm_controllamplight
+
+- story: 隐式表达想要调整灯光亮度/询问是否调整/拒绝/槽位清空
+  steps:
+  - intent: latent_control_lamplight
+  - action: action_latent_control_lamplight
+  - intent: deny
+  - action: action_deny_controllamplight
+

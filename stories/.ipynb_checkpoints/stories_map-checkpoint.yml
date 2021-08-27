@@ -1,0 +1,1369 @@
+- action:
+  - Control-RangHood_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-RangHood_State
+- action:
+  - Control-RangHood_State
+  slots:
+  - operation
+  - device
+  - mode
+  user_intent:
+  - Control-RangHood_State
+- action:
+  - Control-Lamp_State
+  slots:
+  - device
+  - address
+  - operation
+  user_intent:
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - device
+  - address
+  - operation
+  user_intent:
+  - inform_Lamp
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - address
+  - device
+  - operation
+  user_intent:
+  - inform_address
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - range
+  - device
+  - operation
+  user_intent:
+  - inform_range
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - range
+  - device
+  - operation
+  user_intent:
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - device
+  - address
+  - operation
+  user_intent:
+  - inform_Lamp
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - address
+  - operation
+  - device
+  user_intent:
+  - inform_address
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - device
+  - address
+  - operation
+  user_intent:
+  - Control-Lamp_Close
+- action:
+  - Control-Lamp_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-Lamp_Close
+- action:
+  - Control-Lamp_State
+  slots:
+  - device
+  - address
+  - operation
+  user_intent:
+  - inform_Lamp
+  - Control-Lamp_Close
+- action:
+  - Control-Lamp_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-Lamp_Close
+- action:
+  - Control-Lamp_State
+  slots:
+  - range
+  - device
+  - operation
+  user_intent:
+  - inform_range
+  - Control-Lamp_Close
+- action:
+  - Control-Lamp_State
+  slots:
+  - device
+  - range
+  - operation
+  user_intent:
+  - Control-Lamp_Close
+- action:
+  - Control-Lamp_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-Lamp_Close
+- action:
+  - Control-Lamp_State
+  slots:
+  - device
+  - address
+  - operation
+  user_intent:
+  - inform_Lamp
+  - Control-Lamp_Close
+- action:
+  - Control-Lamp_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-Lamp_Close
+- action:
+  - Control-Lamp_State
+  slots:
+  - range
+  - operation
+  - device
+  user_intent:
+  - inform_range
+  - Control-Lamp_Close
+- action:
+  - Control-Lamp_Lightness
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-Lamp_Lightness
+- action:
+  - Control-Lamp_Lightness
+  slots:
+  - address
+  - operation
+  - device
+  user_intent:
+  - inform_address
+  - Control-Lamp_Lightness
+- action:
+  - Control-Lamp_Lightness
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-Lamp_Lightness
+- action:
+  - Control-Lamp_Lightness
+  slots:
+  - address
+  - operation
+  - device
+  user_intent:
+  - inform_address
+  - Control-Lamp_Lightness
+- action:
+  - Control-Lamp_Lightness
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-Lamp_Lightness
+- action:
+  - Control-Lamp_Lightness
+  slots:
+  - address
+  - operation
+  - device
+  user_intent:
+  - inform_address
+  - Control-Lamp_Lightness
+- action:
+  - Control-Lamp_Lightness
+  slots:
+  - operation
+  - device
+  - address
+  user_intent:
+  - Control-Lamp_Lightness
+- action:
+  - Control-Lamp_Lightness
+  slots:
+  - sensorvalue
+  - device
+  - address
+  user_intent:
+  - Control-Lamp_Lightness
+- action:
+  - Control-Lamp_State
+  slots:
+  - operation
+  - device
+  - address
+  user_intent:
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_Lightness
+  slots:
+  - sensorvalue
+  - operation
+  - device
+  - address
+  user_intent:
+  - Control-Lamp_Lightness
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_Lightness
+  slots:
+  - sensorvalue
+  user_intent:
+  - Control-Lamp_Lightness
+  - Control-Lamp_Lightness
+- action:
+  - Control-Lamp_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_Lightness
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-Lamp_Lightness
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - operation
+  - device
+  - address
+  user_intent:
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_Lightness
+  slots:
+  - sensorvalue
+  - operation
+  - device
+  - address
+  user_intent:
+  - inform_sensorvalue
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - operation
+  - device
+  - address
+  user_intent:
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_Lightness
+  slots:
+  - sensorvalue
+  - operation
+  - device
+  - address
+  user_intent:
+  - inform_sensorvalue
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_State
+  slots:
+  - operation
+  - device
+  - address
+  user_intent:
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_Lightness
+  slots:
+  - sensorvalue
+  - operation
+  - device
+  - address
+  user_intent:
+  - Control-Lamp_Lightness
+  - Control-Lamp_Open
+- action:
+  - Control-Lamp_Mode
+  slots:
+  - device
+  - address
+  - mode
+  user_intent:
+  - Control-Lamp_Mode
+- action:
+  - Control-Lamp_Color
+  slots:
+  - device
+  - color
+  - address
+  user_intent:
+  - Control-Lamp_Color
+- action:
+  - Control-Lamp_Mode
+  slots:
+  - device
+  - mode
+  - address
+  user_intent:
+  - Control-Lamp_Mode
+- action:
+  - Control-Lamp_Color
+  slots:
+  - device
+  - address
+  - color
+  user_intent:
+  - Control-Lamp_Color
+- action:
+  - Control-Lamp_Mode
+  slots:
+  - device
+  - address
+  - mode
+  user_intent:
+  - Control-Lamp_Mode
+- action:
+  - Control-Lamp_Color
+  slots:
+  - device
+  - address
+  - color
+  user_intent:
+  - Control-Lamp_Color
+- action:
+  - Control-Lamp_Mode
+  slots:
+  - device
+  - mode
+  user_intent:
+  - Control-Lamp_Mode
+- action:
+  - Control-Lamp_Mode
+  slots:
+  - address
+  - device
+  - mode
+  user_intent:
+  - inform_address
+  - Control-Lamp_Mode
+- action:
+  - Control-Lamp_Color
+  slots:
+  - device
+  user_intent:
+  - Control-Lamp_Color
+- action:
+  - Control-Lamp_Color
+  slots:
+  - address
+  - device
+  user_intent:
+  - inform_address
+  - Control-Lamp_Color
+- action:
+  - Control-Lamp_Color
+  slots:
+  - device
+  - address
+  - target
+  - operation
+  - color
+  user_intent:
+  - Control-Lamp_Color
+- action:
+  - Control-Lamp_Color
+  slots:
+  - operation
+  - target
+  - color
+  - device
+  - address
+  user_intent:
+  - Control-Lamp_Color
+  - Control-Lamp_Color
+- action:
+  - Control-Lamp_Timing
+  slots:
+  - time
+  - operation
+  - device
+  - address
+  user_intent:
+  - Control-Lamp_Timing
+- action:
+  - Control-Lamp_Timing
+  slots:
+  - operation
+  - device
+  - address
+  - time
+  user_intent:
+  - Control-Lamp_Timing
+- action:
+  - Control-Lamp_Timing
+  slots:
+  - time
+  - operation
+  - device
+  user_intent:
+  - Control-Lamp_Timing
+- action:
+  - Control-Lamp_Timing
+  slots:
+  - address
+  - time
+  - operation
+  - device
+  user_intent:
+  - inform_address
+  - Control-Lamp_Timing
+- action:
+  - Control-Fan_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-Fan_State
+- action:
+  - Control-Fan_State
+  slots:
+  - address
+  - device
+  - operation
+  user_intent:
+  - Control-Fan_State
+  - Control-Fan_State
+- action:
+  - Control-Fan_State
+  slots:
+  - device
+  - operation
+  - address
+  user_intent:
+  - Control-Fan_State
+- action:
+  - Control-Fan_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-Fan_State
+- action:
+  - action_controlDeviceWind
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-Fan_Wind
+- action:
+  - action_controlDeviceWind
+  slots:
+  - sensorvalue
+  - device
+  user_intent:
+  - Control-Fan_Wind
+- action:
+  - action_controlDeviceWind
+  slots:
+  - sensorvalue
+  - device
+  user_intent:
+  - Control-Fan_Wind
+- action:
+  - Control-Fan_Gear
+  slots:
+  - sensorvalue
+  - device
+  user_intent:
+  - Control-Fan_Gear
+- action:
+  - Control-Fan_Gear
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-Fan_Gear
+- action:
+  - Control-Fan_Mode
+  slots:
+  - mode
+  - device
+  user_intent:
+  - Control-Fan_Mode
+- action:
+  - Control-Fan_Mode
+  slots:
+  - mode
+  - device
+  - operation
+  user_intent:
+  - Control-Fan_Mode
+- action:
+  - Control-Fan_Timing
+  slots:
+  - time
+  - operation
+  - device
+  user_intent:
+  - Control-Fan_Timing
+- action:
+  - Control-Fan_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-Fan_State
+- action:
+  - Control-Fan_Timing
+  slots:
+  - time
+  - operation
+  - device
+  user_intent:
+  - Control-Fan_Timing
+  - Control-Fan_State
+- action:
+  - Control-Fan_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-Fan_State
+- action:
+  - Control-Fan_Timing
+  slots:
+  - time
+  - operation
+  - device
+  user_intent:
+  - Control-Fan_Timing
+  - Control-Fan_State
+- action:
+  - Control-Humidifier_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-Humidifier_State
+- action:
+  - Control-Humidifier_Gear
+  slots:
+  - gear_level
+  - device
+  user_intent:
+  - Control-Humidifier_Gear
+- action:
+  - Control-Humidifier_Gear
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-Humidifier_Gear
+- action:
+  - action_humidifiertiming
+  slots:
+  - device
+  - time
+  - operation
+  user_intent:
+  - Control-Humidifier_Timing
+- action:
+  - Control-RiceCooker_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-RiceCooker_State
+- action:
+  - Control-RiceCooker_Mode
+  slots:
+  - device
+  - mode
+  user_intent:
+  - Control-RiceCooker_Mode
+- action:
+  - action_RiceCookertiming
+  slots:
+  - device
+  - time
+  user_intent:
+  - Control-RiceCooker_Timing
+- action:
+  - Control-Curtain_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-Curtain_State
+- action:
+  - Control-Curtain_State
+  slots:
+  - device
+  - operation
+  - sensorvalue
+  user_intent:
+  - Control-Curtain_State
+- action:
+  - Control-Curtain_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-Curtain_State
+- action:
+  - Control-Curtain_State
+  slots:
+  - device
+  - operation
+  - sensorvalue
+  user_intent:
+  - Control-Curtain_State
+- action:
+  - Control-Curtain_Timing
+  slots:
+  - device
+  - date_time
+  - time
+  - operation
+  user_intent:
+  - Control-Curtain_Timing
+- action:
+  - Control-Curtain_Timing
+  slots:
+  - device
+  - date_time
+  - time
+  - operation
+  - sensorvalue
+  user_intent:
+  - Control-Curtain_Timing
+- action:
+  - Control-Oven_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-Oven_State
+- action:
+  - Control-Oven_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-Oven_State
+- action:
+  - Control-Oven_Mode
+  slots:
+  - mode
+  - device
+  user_intent:
+  - Control-Oven_Mode
+- action:
+  - Control-Oven_Temp
+  slots:
+  - device
+  - temperature
+  user_intent:
+  - Control-Oven_Temp
+- action:
+  - Control-AC_State
+  slots:
+  - address
+  - device
+  - operation
+  user_intent:
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - address
+  - device
+  - operation
+  user_intent:
+  - inform_AC
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - address
+  - device
+  - operation
+  user_intent:
+  - inform_address
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - range
+  - device
+  - operation
+  user_intent:
+  - inform_range
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - range
+  - device
+  - operation
+  user_intent:
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - device
+  - address
+  - operation
+  user_intent:
+  - inform_AC
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - address
+  - operation
+  - device
+  user_intent:
+  - inform_address
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - address
+  - device
+  - operation
+  user_intent:
+  - Control-AC_Close
+- action:
+  - Control-AC_State
+  slots:
+  - device
+  - operation
+  user_intent:
+  - Control-AC_Close
+- action:
+  - Control-AC_State
+  slots:
+  - address
+  - device
+  - operation
+  user_intent:
+  - inform_AC
+  - Control-AC_Close
+- action:
+  - Control-AC_State
+  slots:
+  - range
+  - device
+  - operation
+  user_intent:
+  - Control-AC_Close
+- action:
+  - Control-AC_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-AC_Close
+- action:
+  - Control-AC_State
+  slots:
+  - device
+  - address
+  - operation
+  user_intent:
+  - inform_AC
+  - Control-AC_Close
+- action:
+  - Control-AC_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-AC_Close
+- action:
+  - Control-AC_State
+  slots:
+  - address
+  - operation
+  - device
+  user_intent:
+  - inform_address
+  - Control-AC_Close
+- action:
+  - Control-AC_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-AC_Close
+- action:
+  - Control-AC_State
+  slots:
+  - range
+  - operation
+  - device
+  user_intent:
+  - inform_range
+  - Control-AC_Close
+- action:
+  - Control-AC_Mode
+  slots:
+  - address
+  - device
+  - mode
+  user_intent:
+  - Control-AC_Mode
+- action:
+  - Control-AC_Mode
+  slots:
+  - mode
+  user_intent:
+  - Control-AC_Mode
+- action:
+  - Control-AC_Mode
+  slots:
+  - address
+  - device
+  - mode
+  user_intent:
+  - inform_AC
+  - Control-AC_Mode
+- action:
+  - Control-AC_Mode
+  slots:
+  - device
+  - mode
+  user_intent:
+  - Control-AC_Mode
+- action:
+  - Control-AC_Mode
+  slots:
+  - address
+  - device
+  - mode
+  user_intent:
+  - inform_AC
+  - Control-AC_Mode
+- action:
+  - Control-AC_State
+  slots:
+  - operation
+  - device
+  - address
+  user_intent:
+  - Control-AC_Open
+- action:
+  - Control-AC_Mode
+  slots:
+  - mode
+  - operation
+  - device
+  - address
+  user_intent:
+  - Control-AC_Mode
+  - Control-AC_Open
+- action:
+  - Control-AC_Mode
+  slots:
+  - mode
+  user_intent:
+  - Control-AC_Mode
+  - Control-AC_Mode
+- action:
+  - Control-AC_Timing
+  slots:
+  - time
+  - operation
+  - device
+  - address
+  user_intent:
+  - Control-AC_Timing
+- action:
+  - Control-AC_Timing
+  slots:
+  - time
+  - operation
+  - device
+  user_intent:
+  - Control-AC_Timing
+- action:
+  - Control-AC_Timing
+  slots:
+  - device
+  - address
+  - time
+  - operation
+  user_intent:
+  - inform_AC
+  - Control-AC_Timing
+- action:
+  - Control-AC_Timing
+  slots:
+  - time
+  - operation
+  - device
+  user_intent:
+  - Control-AC_Timing
+- action:
+  - Control-AC_Timing
+  slots:
+  - address
+  - time
+  - operation
+  - device
+  user_intent:
+  - inform_address
+  - Control-AC_Timing
+- action:
+  - Control-AC_Timing
+  slots:
+  - PAD
+  user_intent:
+  - Control-AC_Timing
+- action:
+  - Control-AC_Timing
+  slots:
+  - time
+  - operation
+  - device
+  user_intent:
+  - Control-AC_Timing
+  - Control-AC_Timing
+- action:
+  - Control-AC_Timing
+  slots:
+  - device
+  - address
+  - time
+  - operation
+  user_intent:
+  - inform_AC
+  - Control-AC_Timing
+- action:
+  - Control-AC_Timing
+  slots:
+  - time
+  - operation
+  - device
+  user_intent:
+  - Control-AC_Timing
+- action:
+  - Control-AC_Timing
+  slots:
+  - address
+  - time
+  - operation
+  - device
+  user_intent:
+  - inform_address
+  - Control-AC_Timing
+- action:
+  - Control-AC_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - address
+  - operation
+  - device
+  user_intent:
+  - inform_address
+  - Control-AC_Open
+- action:
+  - Control-AC_Timing
+  slots:
+  - time
+  - operation
+  - address
+  user_intent:
+  - Control-AC_Timing
+  - inform_address
+- action:
+  - action_controlDeviceWind
+  slots:
+  - operation
+  - target
+  - device
+  - address
+  user_intent:
+  - Control-AC_Wind
+- action:
+  - action_controlDeviceWind
+  slots:
+  - sensorvalue
+  - target
+  - device
+  - address
+  user_intent:
+  - Control-AC_Wind
+- action:
+  - action_controlDeviceWind
+  slots:
+  - operation
+  - target
+  - device
+  user_intent:
+  - Control-AC_Wind
+- action:
+  - action_controlDeviceWind
+  slots:
+  - address
+  - operation
+  - target
+  - device
+  user_intent:
+  - inform_address
+  - Control-AC_Wind
+- action:
+  - action_controlDeviceWind
+  slots:
+  - operation
+  - device
+  - target
+  user_intent:
+  - Control-AC_Wind
+- action:
+  - action_controlDeviceWind
+  slots:
+  - address
+  - operation
+  - device
+  - target
+  user_intent:
+  - inform_address
+  - Control-AC_Wind
+- action:
+  - action_controlDeviceWind
+  slots:
+  - operation
+  - device
+  - address
+  - target
+  user_intent:
+  - Control-AC_Wind
+- action:
+  - action_controlDeviceWind
+  slots:
+  - operation
+  - device
+  - target
+  user_intent:
+  - Control-AC_Wind
+- action:
+  - action_controlDeviceWind
+  slots:
+  - device
+  - address
+  - operation
+  - target
+  user_intent:
+  - inform_AC
+  - Control-AC_Wind
+- action:
+  - Control-AC_State
+  slots:
+  - operation
+  - device
+  - address
+  user_intent:
+  - Control-AC_Open
+- action:
+  - action_controlDeviceWind
+  slots:
+  - sensorvalue
+  - target
+  - operation
+  - device
+  - address
+  user_intent:
+  - Control-AC_Wind
+  - Control-AC_Open
+- action:
+  - action_controlDeviceWind
+  slots:
+  - sensorvalue
+  - target
+  user_intent:
+  - Control-AC_Wind
+  - Control-AC_Wind
+- action:
+  - Control-AC_State
+  slots:
+  - operation
+  - device
+  - address
+  user_intent:
+  - Control-AC_Open
+- action:
+  - action_controlDeviceWind
+  slots:
+  - device
+  - address
+  - operation
+  - target
+  user_intent:
+  - Control-AC_Wind
+  - Control-AC_Open
+- action:
+  - Control-AC_Temp
+  slots:
+  - device
+  - address
+  - operation
+  - temperature
+  user_intent:
+  - Control-AC_Temp
+- action:
+  - Control-AC_Temp
+  slots:
+  - address
+  - device
+  - operation
+  - temperature
+  user_intent:
+  - Control-AC_Temp
+- action:
+  - Control-AC_State
+  slots:
+  - device
+  - address
+  - operation
+  user_intent:
+  - Control-AC_Open
+- action:
+  - Control-AC_Temp
+  slots:
+  - device
+  - operation
+  - temperature
+  - address
+  user_intent:
+  - Control-AC_Temp
+  - Control-AC_Open
+- action:
+  - Control-AC_Temp
+  slots:
+  - device
+  - operation
+  - temperature
+  user_intent:
+  - Control-AC_Temp
+  - Control-AC_Temp
+- action:
+  - Control-AC_State
+  slots:
+  - operation
+  - device
+  - temperature
+  user_intent:
+  - Control-AC_Close
+  - Control-AC_Temp
+- action:
+  - Control-AC_Temp
+  slots:
+  - device
+  - operation
+  - temperature
+  user_intent:
+  - Control-AC_Temp
+- action:
+  - Control-AC_Temp
+  slots:
+  - device
+  - address
+  - operation
+  - temperature
+  user_intent:
+  - inform_AC
+  - Control-AC_Temp
+- action:
+  - Control-AC_Temp
+  slots:
+  - device
+  - operation
+  - temperature
+  user_intent:
+  - Control-AC_Temp
+- action:
+  - Control-AC_Temp
+  slots:
+  - address
+  - device
+  - operation
+  - temperature
+  user_intent:
+  - inform_address
+  - Control-AC_Temp
+- action:
+  - Control-AC_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - address
+  - operation
+  - device
+  user_intent:
+  - inform_AC
+  - Control-AC_Open
+- action:
+  - Control-AC_Temp
+  slots:
+  - temperature
+  - target
+  - address
+  user_intent:
+  - Control-AC_Temp
+  - inform_AC
+- action:
+  - Control-AC_State
+  slots:
+  - operation
+  - device
+  user_intent:
+  - Control-AC_Open
+- action:
+  - Control-AC_State
+  slots:
+  - address
+  - operation
+  - device
+  user_intent:
+  - inform_AC
+  - Control-AC_Open
+- action:
+  - Control-AC_Temp
+  slots:
+  - target
+  - operation
+  - address
+  user_intent:
+  - Control-AC_Temp
+  - inform_AC
+- action:
+  - Control-AC_Temp
+  slots:
+  - device
+  - target
+  - operation
+  user_intent:
+  - Control-AC_Temp
+- action:
+  - Control-AC_Temp
+  slots:
+  - address
+  - device
+  - target
+  - operation
+  user_intent:
+  - inform_address
+  - Control-AC_Temp

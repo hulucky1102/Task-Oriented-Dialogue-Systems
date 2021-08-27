@@ -1,0 +1,1417 @@
+- steps:
+  - intent: greet
+  - action: utter_answer_greet
+  story: greet
+- steps:
+  - intent: greet
+  - action: utter_answer_greet
+  - intent: affirm
+  - action: utter_answer_affirm
+  story: say affirm  with greet
+- steps:
+  - intent: greet
+  - action: utter_answer_greet
+  - intent: deny
+  - action: utter_answer_deny
+  story: say no with greet
+- steps:
+  - intent: deny
+  - action: utter_answer_deny
+  story: say no
+- steps:
+  - intent: goodbye
+  - action: utter_answer_goodbye
+  story: say goodbye
+- steps:
+  - intent: greet
+  - action: utter_answer_greet
+  - intent: thanks
+  - action: utter_answer_thanks
+  story: thanks with greet
+- steps:
+  - intent: thanks
+  - action: utter_answer_thanks
+  story: thanks
+- steps:
+  - intent: greet
+  - action: utter_answer_greet
+  - intent: whoareyou
+  - action: utter_answer_whoareyou
+  story: who are you with greet
+- steps:
+  - intent: whoareyou
+  - action: utter_answer_whoareyou
+  story: who are you
+- steps:
+  - intent: greet
+  - action: utter_answer_greet
+  - intent: whoareyou
+  - action: utter_answer_whoareyou
+  story: who are you with greet
+- steps:
+  - intent: whattodo
+  - action: utter_answer_whattodo
+  story: what to do
+- steps:
+  - intent: greet
+  - action: utter_answer_greet
+  - intent: whattodo
+  - action: utter_answer_whattodo
+  story: what to do with greet
+- steps:
+  - intent: chitchat
+  - action: utter_chitchat
+  story: chitchat
+- steps:
+  - intent: greet
+  - action: utter_answer_greet
+  - entities:
+    - date_time: "\u4ECA\u5929"
+    intent: request_datetime
+  - action: action_answer_requestdatetime
+  story: "\u8BE2\u95EE\u65E5\u671F"
+- steps:
+  - entities:
+    - date_time: "\u4ECA\u5929"
+    intent: request_datetime
+  - action: action_answer_requestdatetime
+  - entities:
+    - date_time: "\u660E\u5929"
+    intent: request_datetime
+  - action: action_answer_requestdatetime
+  - entities:
+    - date_time: "\u540E\u5929"
+    intent: request_datetime
+  - action: action_answer_requestdatetime
+  story: "\u8BE2\u95EE\u65E5\u671F\uFF0C\u8FDE\u7EED\u8BE2\u95EE"
+- steps:
+  - intent: greet
+  - action: utter_answer_greet
+  - entities:
+    - date_time: "\u4ECA\u5929"
+    intent: request_weekday
+  - action: action_answer_requestweekday
+  story: "\u8BE2\u95EE\u5468\u51E0"
+- steps:
+  - entities:
+    - date_time: "\u4ECA\u5929"
+    intent: request_weekday
+  - action: action_answer_requestweekday
+  - entities:
+    - date_time: "\u660E\u5929"
+    intent: request_datetime
+  - action: action_answer_requestweekday
+  - entities:
+    - date_time: "\u540E\u5929"
+    intent: request_datetime
+  - action: action_answer_requestweekday
+  story: "\u8BE2\u95EE\u5468\u51E0\uFF0C\u8FDE\u7EED\u8BE2\u95EE"
+- steps:
+  - intent: greet
+  - action: utter_answer_greet
+  - intent: request_time
+  - action: action_answer_time
+  story: "\u8BE2\u95EE\u65F6\u95F4"
+- steps:
+  - intent: greet
+  - action: utter_answer_greet
+  - intent: request_weather
+  - action: utter_answer_requestweather
+  story: "\u8BE2\u95EE\u5929\u6C14"
+- steps:
+  - intent: request_weather
+  - action: utter_answer_requestweather
+  story: "\u8BE2\u95EE\u5929\u6C142"
+- steps:
+  - entities:
+    - date_time: "\u4ECA\u5929"
+    intent: request_weather
+  - slot_was_set:
+    - date_time: "\u4ECA\u5929"
+  - action: utter_answer_requestweather
+  story: "\u8BE2\u95EE\u5929\u6C143"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u62BD\u6CB9\u70DF\u673A"
+    intent: Control-RangHood_State
+  - action: action_rangehood
+  story: "\u62BD\u6CB9\u70DF\u673A\u7684\u5F00\u5173\u72B6\u6001\u63A7\u5236\u81EA\
+    \u5B9A\u4E49\u5BF9\u8BDD\u6A21\u677F \u6253\u5F00/\u5173\u95ED \u62BD\u6CB9\u70DF\
+    \u673A"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u62BD\u6CB9\u70DF\u673A"
+    - mode: "\u5F3A\u529B\u6A21\u5F0F"
+    intent: Control-RangHood_State
+  - action: action_rangehood
+  story: "\u62BD\u6CB9\u70DF\u673A\u7684\u5F00\u5173\u72B6\u6001\u63A7\u5236\u81EA\
+    \u5B9A\u4E49\u5BF9\u8BDD\u6A21\u677F \u6253\u5F00/\u5173\u95ED \u62BD\u6CB9\u70DF\
+    \u673A \u5F3A\u529B\u6A21\u5F0F"
+- steps:
+  - entities:
+    - device: "\u4E3B\u5367\u706F"
+    - address: "\u4E3B\u5367"
+    - operation: "\u6253\u5F00"
+    intent: Control-Lamp_Open
+  - action: action_open_lamp
+  story: "open lamp--\u5177\u4F53\u706F\u5177\u8BBE\u5907\u6307\u660E"
+- steps:
+  - entities:
+    - device: "\u706F"
+    - operation: "\u6253\u5F00"
+    intent: Control-Lamp_Open
+  - action: action_open_lamp
+  - entities:
+    - device: "\u706F"
+    - address: "\u5BA2\u5385"
+    intent: inform_lamp
+  - action: action_open_lamp
+  story: "open Lamp2--\u672A\u6307\u660E\u5177\u4F53\u706F\u5177\u8BBE\u5907/\u8BE2\
+    \u95EE\u5177\u4F53\u8BBE\u5907/\u786E\u8BA4\u706F\u5177/\u6267\u884C"
+- steps:
+  - entities:
+    - device: "\u706F"
+    - operation: "\u6253\u5F00"
+    intent: Control-Lamp_Open
+  - action: action_open_lamp
+  - entities:
+    - address: "\u5BA2\u5385"
+    intent: inform_room
+  - action: action_open_lamp
+  story: "open Lamp2--\u672A\u6307\u660E\u5177\u4F53\u706F\u5177\u8BBE\u5907/\u8BE2\
+    \u95EE\u5177\u4F53\u8BBE\u5907/\u786E\u8BA4\u623F\u95F4/\u6267\u884C"
+- steps:
+  - entities:
+    - device: "\u706F"
+    - operation: "\u6253\u5F00"
+    intent: Control-Lamp_Open
+  - action: action_open_lamp
+  - entities:
+    - range: "\u6240\u6709"
+    intent: inform_range
+  - action: action_open_lamp
+  story: "open Lamp2--\u672A\u6307\u660E\u5177\u4F53\u706F\u5177\u8BBE\u5907/\u8BE2\
+    \u95EE\u5177\u4F53\u8BBE\u5907/\u786E\u8BA4\u6240\u6709\u706F\u5177/\u6267\u884C"
+- steps:
+  - entities:
+    - range: "\u6240\u6709"
+    - device: "\u706F"
+    - operation: "\u6253\u5F00"
+    intent: Control-Lamp_Open
+  - action: action_open_lamp
+  story: "open Lamp3--\u6307\u660E\u6240\u6709\u7684\u706F"
+- steps:
+  - entities:
+    - operation: "\u5F00"
+    - device: "\u706F"
+    intent: Control-Lamp_Open
+  - action: action_open_lamp
+  - entities:
+    - device: "\u706F"
+    - address: "\u5BA2\u5385"
+    intent: inform_lamp
+  - action: action_open_lamp
+  story: "\u786C\u7F16\u7801\u56DE\u590D\u706F\u5177\u6253\u5F00--\u6F84\u6E05\u5177\
+    \u4F53\u8BBE\u5907/\u7528\u6237\u786E\u8BA4\u8BBE\u5907/\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u5F00"
+    - device: "\u706F"
+    intent: Control-Lamp_Open
+  - action: action_open_lamp
+  - entities:
+    - address: "\u5BA2\u5385"
+    intent: inform_room
+  - action: action_open_lamp
+  story: "\u786C\u7F16\u7801\u56DE\u590D\u706F\u5177\u6253\u5F00--\u6F84\u6E05\u5177\
+    \u4F53\u8BBE\u5907/\u7528\u6237\u786E\u8BA4\u623F\u95F4/\u6267\u884C"
+- steps:
+  - entities:
+    - device: "\u706F"
+    - address: "\u9910\u5385"
+    - operation: "\u5173\u95ED"
+    intent: Control-Lamp_Close
+  - action: action_close_lamp
+  story: "close Lamp1--\u5177\u4F53\u6307\u660E\u706F\u5177\u8BBE\u5907"
+- steps:
+  - entities:
+    - device: "\u706F"
+    - operation: "\u5173\u95ED"
+    intent: Control-Lamp_Close
+  - action: action_close_lamp
+  - entities:
+    - device: "\u706F"
+    - address: "\u9910\u5385"
+    intent: inform_lamp
+  - action: action_close_lamp
+  story: "close Lamp2--\u672A\u6307\u660E\u706F\u5177\u8BBE\u5907\uFF0C\u9700\u8981\
+    \u8FDB\u4E00\u6B65\u6F84\u6E05"
+- steps:
+  - entities:
+    - device: "\u706F"
+    - operation: "\u5173\u95ED"
+    intent: Control-Lamp_Close
+  - action: action_close_lamp
+  - entities:
+    - range: "\u6240\u6709"
+    intent: inform_range
+  - action: action_close_lamp
+  story: "close Lamp2--\u672A\u6307\u660E\u706F\u5177\u8BBE\u5907\uFF0C\u6F84\u6E05\
+    \u5168\u90E8\u7684\u706F"
+- steps:
+  - entities:
+    - device: "\u706F"
+    - range: "\u6240\u6709"
+    - operation: "\u5173\u95ED"
+    intent: Control-Lamp_Close
+  - action: action_close_lamp
+  story: "close Lamp3--\u6307\u660E\u6240\u6709\u7684\u706F\u5177\u8BBE\u5907"
+- steps:
+  - entities:
+    - operation: "\u5173"
+    - device: "\u706F"
+    intent: Control-Lamp_Close
+  - action: action_close_lamp
+  - entities:
+    - device: "\u706F"
+    - address: "\u9910\u5385"
+    intent: inform_lamp
+  - action: action_close_lamp
+  story: "\u786C\u7F16\u7801\u56DE\u590D\u63A7\u5236\u706F\u5177\u5173\u95ED"
+- steps:
+  - entities:
+    - operation: "\u5173"
+    - device: "\u706F"
+    intent: Control-Lamp_Close
+  - action: action_close_lamp
+  - entities:
+    - range: "\u6240\u6709"
+    intent: inform_range
+  - action: action_close_lamp
+  story: "\u786C\u7F16\u7801\u56DE\u590D\u63A7\u5236\u706F\u5177\u5173\u95ED \u56DE\
+    \u590D\u5168\u90E8\u7684\u60C5\u51B5"
+- steps:
+  - entities:
+    - operation: "\u8C03\u9AD8"
+    - device: "\u706F"
+    intent: Control-Lamp_Lightness
+  - action: action_controllamplightness
+  - entities:
+    - address: "\u4E3B\u5367"
+    intent: inform_room
+  - action: action_controllamplightness
+  story: "\u8C03\u6574\u706F\u7684\u4EAE\u5EA6(\u65E0\u6307\u660E\u5177\u4F53\u706F\
+    \u5149\u8BBE\u5907)/\u786E\u8BA4\u623F\u95F4/\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u8C03\u4F4E"
+    - device: "\u706F"
+    intent: Control-Lamp_Lightness
+  - action: action_controllamplightness
+  - entities:
+    - address: "\u5BA2\u5385"
+    intent: inform_room
+  - action: action_controllamplightness
+  story: "\u8C03\u4F4E\u706F\u7684\u4EAE\u5EA6(\u65E0\u6307\u660E\u5177\u4F53\u706F\
+    \u5149\u8BBE\u5907)/\u786E\u8BA4\u623F\u95F4/\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u8C03\u4F4E"
+    - device: "\u706F\u5149"
+    intent: Control-Lamp_Lightness
+  - action: action_controllamplightness
+  - entities:
+    - address: "\u4E3B\u5367"
+    intent: inform_room
+  - action: action_controllamplightness
+  story: "\u8C03\u4F4E\u706F\u7684\u4EAE\u5EA6(\u6F84\u6E05\u5177\u4F53\u706F\u5177\
+    \u8BBE\u5907)/\u786E\u8BA4\u8BBE\u5907/\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u8C03\u9AD8"
+    - device: "\u706F"
+    - address: "\u5BA2\u5385"
+    intent: Control-Lamp_Lightness
+  - action: action_controllamplightness
+  story: "\u8C03\u6574\u706F\u7684\u4EAE\u5EA6(\u6307\u660E\u5177\u4F53\u623F\u95F4\
+    \u706F\u5149\u8BBE\u5907)/\u6267\u884C"
+- steps:
+  - entities:
+    - sensorvalue: "\u6700\u5927\u4EAE\u5EA6"
+    - device: "\u706F"
+    - address: "\u5BA2\u5385"
+    intent: Control-Lamp_Lightness
+  - action: action_controllamplightness
+  story: "\u8C03\u6574\u706F\u7684\u4EAE\u5EA6(\u6307\u660E\u5177\u4F53\u623F\u95F4\
+    \u706F\u5149\u8BBE\u5907 \u6700\u5927\u4EAE\u5EA6&\u4E2D\u7B49\u4EAE\u5EA6&\u6700\
+    \u5C0F\u4EAE\u5EA6)/\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u706F"
+    - address: "\u4E3B\u5367"
+    intent: Control-Lamp_Open
+  - action: action_open_lamp
+  - entities:
+    - sensorvalue: "\u6700\u5927\u4EAE\u5EA6"
+    intent: Control-Lamp_Lightness
+  - action: action_controllamplightness
+  - entities:
+    - sensorvalue: "\u6700\u4F4E\u4EAE\u5EA6"
+    intent: Control-Lamp_Lightness
+  - action: action_controllamplightness
+  story: "interactive_story_1 \u8C03\u6574\u706F\u5149\u4EAE\u5EA6/\u6253\u5F00/\u8C03\
+    \u5230\u6700\u4EAE/\u8C03\u5230\u6700\u6697/\u8BE2\u95EE\u8BBE\u5907/\u786E\u8BA4\
+    \u8BBE\u5907/\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u53F0\u706F"
+    intent: Control-Lamp_Open
+  - action: action_open_lamp
+  - entities:
+    - device: "\u53F0\u706F"
+    - operation: "\u8C03\u4EAE"
+    intent: Control-Lamp_Lightness
+  - action: action_controllamplightness
+  story: "interactive_story_1 \u6253\u5F00\u53F0\u706F/\u53F0\u706F\u8C03\u4EAE"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u706F"
+    - address: "\u5395\u6240"
+    intent: Control-Lamp_Open
+  - action: action_open_lamp
+  - entities:
+    - sensorvalue: "\u6700\u4F4E\u4EAE\u5EA6"
+    intent: inform_sensorvalue
+  - action: action_controllamplightness
+  story: "\u6253\u5F00XX\u706F/\u6700\u4F4E\u4EAE\u5EA6"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u706F"
+    - address: "\u4E3B\u5367"
+    intent: Control-Lamp_Open
+  - action: action_open_lamp
+  - entities:
+    - sensorvalue: "\u6700\u5927\u4EAE\u5EA6"
+    intent: inform_sensorvalue
+  - action: action_controllamplightness
+  story: "\u6253\u5F00XX\u706F/\u6700\u5927\u4EAE\u5EA6(intent\u8BC6\u522B\u4E3Ainform\
+    \ sensorvalue\u60C5\u51B5)"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u706F"
+    - address: "\u53A8\u623F"
+    intent: Control-Lamp_Open
+  - action: action_open_lamp
+  - entities:
+    - sensorvalue: "\u6700\u5927\u4EAE\u5EA6"
+    intent: Control-Lamp_Lightness
+  - action: action_controllamplightness
+  story: "\u6253\u5F00\u53A8\u623F\u706F/\u6700\u5927\u4EAE\u5EA6(intent\u8BC6\u522B\
+    \u4E3AControl-Lamp_Lightness\u60C5\u51B5)/\u6B63\u5E38\u56DE\u590D"
+- steps:
+  - entities:
+    - device: "\u706F"
+    - address: "\u5BA2\u5385"
+    - mode: "\u660E\u4EAE\u6A21\u5F0F"
+    intent: Control-Lamp_Mode
+  - action: lampmode_form
+  story: "\u63A7\u5236\u706F\u5149\u6A21\u5F0F(\u69FD\u4F4D\u4FE1\u606F\u9F50\u5168\
+    )/\u76F4\u63A5\u6267\u884CAction"
+- steps:
+  - entities:
+    - device: "\u706F"
+    - color: "\u51B7\u8272"
+    - address: "\u5BA2\u5385"
+    intent: Control-Lamp_Color
+  - action: lampcolor_form
+  story: "\u63A7\u5236\u706F\u5149\u989C\u8272(\u69FD\u4F4D\u4FE1\u606F\u9F50\u5168\
+    )/\u76F4\u63A5\u6267\u884CAction"
+- steps:
+  - entities:
+    - device: "\u706F"
+    - mode: "\u6E29\u99A8\u6A21\u5F0F"
+    - address: "\u5BA2\u5385"
+    intent: Control-Lamp_Mode
+  - action: lampmode_form
+  story: "\u63A7\u5236\u706F\u5149\u7684\u6A21\u5F0F(\u706F\u5177\u4FE1\u606F\u9F50\
+    \u5168 \u76EE\u6807\u6A21\u5F0F\u4FE1\u606F\u4E0D\u5168\uFF0C\u9700\u8981\u6F84\
+    \u6E05\u76EE\u6807\u4FE1\u606F)/\u8BE2\u95EE\u9700\u8981\u8C03\u6574\u6210\u4EC0\
+    \u4E48\u6A21\u5F0F/\u786E\u8BA4\u6267\u884C"
+- steps:
+  - entities:
+    - device: "\u706F"
+    - address: "\u5BA2\u5385"
+    - color: "\u7EA2\u8272"
+    intent: Control-Lamp_Color
+  - action: lampcolor_form
+  story: "\u63A7\u5236\u706F\u5149\u7684\u989C\u8272(\u706F\u5177\u4FE1\u606F\u9F50\
+    \u5168 \u76EE\u6807\u6A21\u5F0F\u4FE1\u606F\u4E0D\u5168\uFF0C\u9700\u8981\u6F84\
+    \u6E05\u76EE\u6807\u4FE1\u606F)/\u8BE2\u95EE\u9700\u8981\u8C03\u6574\u6210\u4EC0\
+    \u4E48\u6A21\u5F0F/\u786E\u8BA4\u6267\u884C"
+- steps:
+  - entities:
+    - device: "\u706F"
+    - address: "\u5BA2\u5385"
+    - mode: "\u660E\u4EAE\u6A21\u5F0F"
+    intent: Control-Lamp_Mode
+  - action: lampmode_form
+  story: "\u63A7\u5236\u706F\u5149\u7684\u6A21\u5F0F(\u706F\u5177\u4FE1\u606F\u4E0D\
+    \u9F50\u5168 \u76EE\u6807\u6A21\u5F0F\u4FE1\u606F\u4E0D\u5168\uFF0C\u9700\u8981\
+    \u9010\u4E2A\u6F84\u6E05)/\u8BE2\u95EE\u623F\u95F4(\u5177\u4F53\u706F\u5177)/\u8BE2\
+    \u95EE\u9700\u8981\u8C03\u6574\u6210\u4EC0\u4E48\u6A21\u5F0F/\u786E\u8BA4\u6267\
+    \u884C"
+- steps:
+  - entities:
+    - device: "\u706F"
+    - address: "\u5BA2\u5385"
+    - color: "\u6696\u8272"
+    intent: Control-Lamp_Color
+  - action: lampcolor_form
+  story: "\u63A7\u5236\u706F\u5149\u7684\u989C\u8272(\u706F\u5177\u4FE1\u606F\u4E0D\
+    \u9F50\u5168 \u76EE\u6807\u6A21\u5F0F\u4FE1\u606F\u4E0D\u5168\uFF0C\u9700\u8981\
+    \u9010\u4E2A\u6F84\u6E05)/\u8BE2\u95EE\u623F\u95F4(\u5177\u4F53\u706F\u5177)/\u8BE2\
+    \u95EE\u9700\u8981\u8C03\u6574\u6210\u4EC0\u4E48\u6A21\u5F0F/\u786E\u8BA4\u6267\
+    \u884C"
+- steps:
+  - entities:
+    - device: "\u706F"
+    intent: Control-Lamp_Mode
+  - action: lampmode_form
+    entities:
+    - mode: "\u660E\u4EAE\u6A21\u5F0F"
+  - entities:
+    - address: "\u4E3B\u5367"
+    intent: inform_room
+  - action: lampmode_form
+  story: "\u63A7\u5236\u706F\u5149\u7684\u6A21\u5F0F(\u706F\u5177\u4FE1\u606F\u7F3A\
+    \u5C11\u6307\u5B9A\u623F\u95F4\u4FE1\u606F)"
+- steps:
+  - entities:
+    - device: "\u706F"
+    intent: Control-Lamp_Color
+  - action: lampcolor_form
+    entities:
+    - color: "\u6696\u8272"
+  - entities:
+    - address: "\u5BA2\u5367"
+    intent: inform_room
+  - action: lampcolor_form
+  story: "\u63A7\u5236\u706F\u5149\u7684\u989C\u8272(\u706F\u5177\u4FE1\u606F\u7F3A\
+    \u5C11\u6307\u5B9A\u623F\u95F4\u4FE1\u606F)"
+- steps:
+  - entities:
+    - device: "\u706F"
+    - address: "\u5BA2\u5385"
+    - target: "\u989C\u8272"
+    - operation: "\u8C03\u6574"
+    - color: "\u7EA2\u8272"
+    intent: Control-Lamp_Color
+  - action: lampcolor_form
+  - entities:
+    - operation: "\u5207\u6362"
+    - target: "\u8272\u8C03"
+    - color: "\u6696\u8272"
+    intent: Control-Lamp_Color
+  - action: lampcolor_form
+  story: "\u63A7\u5236\u706F\u5149\u7684\u989C\u8272 (\u5207\u6362\u8272\u8C03\uFF0C\
+    \u8BE2\u95EE\u8272\u8C03)"
+- steps:
+  - entities:
+    - time: "\u4E00\u5C0F\u65F6"
+    - operation: "\u6253\u5F00"
+    - device: "\u706F"
+    - address: "\u4E3B\u5367"
+    intent: Control-Lamp_Timing
+  - action: lamptiming_form
+  story: "\u63A7\u5236\u706F\u5149\u5B9A\u65F6\u64CD\u4F5C\uFF0C\u6240\u6709\u4FE1\
+    \u606F\u9F50\u5168/\u65E0\u9700\u6F84\u6E05\u69FD\u4F4D\u4FE1\u606F/\u76F4\u63A5\
+    \u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u5173\u95ED"
+    - device: "\u706F"
+    - address: "\u5BA2\u5385"
+    - time: "\u4E24\u5C0F\u65F6"
+    intent: Control-Lamp_Timing
+  - action: lamptiming_form
+  story: "\u63A7\u5236\u706F\u5149\u5B9A\u65F6\u64CD\u4F5C \u5B9A\u65F6\u5173\u95ED\
+    \u5BA2\u5385\u706F(\u706F\u5177\u6307\u660E)/\u6F84\u6E05\u5B9A\u65F6\u65F6\u95F4"
+- steps:
+  - entities:
+    - time: "\u4E00\u5C0F\u65F6"
+    - operation: "\u5173\u95ED"
+    - device: "\u706F"
+    intent: Control-Lamp_Timing
+  - action: lamptiming_form
+  - entities:
+    - address: "\u4E3B\u5367"
+    intent: inform_room
+  - action: lamptiming_form
+  story: "\u63A7\u5236\u706F\u5149\u5B9A\u65F6\u64CD\u4F5C \u5B9A\u65F6\u5173\u95ED\
+    \u706F(\u706F\u5177\u4FE1\u606F\u672A\u6307\u660E \u5176\u4ED6\u4FE1\u606F\u9F50\
+    \u5168)/\u6F84\u6E05\u5177\u4F53\u8BBE\u5907/\u7528\u6237\u56DE\u590D\u5177\u4F53\
+    \ [\u706F\u5177] /\u7EE7\u7EED\u6267\u884C"
+- steps:
+  - intent: latent_control_lamplight
+  - action: action_latent_control_lamplight
+  - intent: inform_lamp
+  - action: action_latent_control_lamplight
+  - intent: affirm
+  - action: action_affirm_controllamplight
+  story: "\u9690\u5F0F\u8868\u8FBE\u60F3\u8981\u8C03\u6574\u706F\u5149\u4EAE\u5EA6\
+    /\u8BE2\u95EE\u5177\u4F53\u706F\u5177/\u8BE2\u95EE\u662F\u5426\u8C03\u6574/\u786E\
+    \u8BA4/\u4EAE\u5EA6\u8C03\u6574"
+- steps:
+  - intent: latent_control_lamplight
+  - action: action_latent_control_lamplight
+  - intent: inform_lamp
+  - action: action_latent_control_lamplight
+  - intent: deny
+  - action: action_deny_controllamplight
+  story: "\u9690\u5F0F\u8868\u8FBE\u60F3\u8981\u8C03\u6574\u706F\u5149\u4EAE\u5EA6\
+    /\u8BE2\u95EE\u5177\u4F53\u706F\u5177/\u8BE2\u95EE\u662F\u5426\u8C03\u6574/\u62D2\
+    \u7EDD/\u69FD\u4F4D\u6E05\u7A7A"
+- steps:
+  - intent: latent_control_lamplight
+  - action: action_latent_control_lamplight
+  - intent: affirm
+  - action: action_affirm_controllamplight
+  story: "\u9690\u5F0F\u8868\u8FBE\u60F3\u8981\u8C03\u6574\u706F\u5149\u4EAE\u5EA6\
+    /\u8BE2\u95EE\u662F\u5426\u8C03\u6574/\u786E\u8BA4/\u4EAE\u5EA6\u8C03\u6574"
+- steps:
+  - intent: latent_control_lamplight
+  - action: action_latent_control_lamplight
+  - intent: deny
+  - action: action_deny_controllamplight
+  story: "\u9690\u5F0F\u8868\u8FBE\u60F3\u8981\u8C03\u6574\u706F\u5149\u4EAE\u5EA6\
+    /\u8BE2\u95EE\u662F\u5426\u8C03\u6574/\u62D2\u7EDD/\u69FD\u4F4D\u6E05\u7A7A"
+- steps:
+  - entities:
+    - device: "\u98CE\u6247"
+    - operation: "\u6253\u5F00"
+    intent: Control-Fan_State
+  - action: action_fan_state
+  story: "open or close \u98CE\u6247--\u65E0\u5177\u4F53\u9700\u8981\u6307\u660E\u7684\
+    \u8BBE\u5907\u540D\u79F0\uFF0C\u5355\u72EC\u7684"
+- steps:
+  - entities:
+    - device: "\u98CE\u6247"
+    - operation: "\u5173\u95ED"
+    intent: Control-Fan_State
+  - action: action_fan_state
+  story: "open or close \u98CE\u6247--\u65E0\u5177\u4F53\u9700\u8981\u6307\u660E\u7684\
+    \u8BBE\u5907\u540D\u79F0\uFF0C\u5355\u72EC\u7684"
+- steps:
+  - entities:
+    - operation: "\u589E\u5927\u98CE\u901F"
+    - device: "\u98CE\u6247"
+    intent: Control-Fan_Wind
+  - action: action_controlDeviceWind
+  story: "\u8C03\u6574\u98CE\u6247\u7684\u98CE\u901F(\u6240\u6709\u4FE1\u606F\u9F50\
+    \u5168\uFF0C\u5177\u4F53\u7684\u98CE\u6247\u8BBE\u5907\uFF0C\u98CE\u901F\u8C03\
+    \u9AD8\u6216\u8005\u662F\u8C03\u4F4E)/\u6267\u884C"
+- steps:
+  - entities:
+    - sensorvalue: "\u6700\u5927\u98CE\u901F"
+    - device: "\u98CE\u6247"
+    intent: Control-Fan_Wind
+  - action: action_controlDeviceWind
+  story: "\u8C03\u6574\u98CE\u6247\u7684\u98CE\u901F(\u6240\u6709\u4FE1\u606F\u9F50\
+    \u5168\uFF0C\u5177\u4F53\u7684\u98CE\u6247\u8BBE\u5907\uFF0C\u98CE\u901F\u5177\
+    \u4F53\u53C2\u6570\u503C(\u6700\u5927\u98CE\u901F/\u6700\u5C0F\u98CE\u901F/\u4E2D\
+    \u7B49\u98CE\u901F))/\u6267\u884C"
+- steps:
+  - entities:
+    - sensorvalue: "\u4E2D\u7B49\u98CE\u901F"
+    - device: "\u98CE\u6247"
+    intent: Control-Fan_Wind
+  - action: action_controlDeviceWind
+  story: "\u8C03\u6574\u98CE\u6247\u7684\u98CE\u901F(\u6240\u6709\u4FE1\u606F\u9F50\
+    \u5168\uFF0C\u5177\u4F53\u7684\u98CE\u6247\u8BBE\u5907\uFF0C\u98CE\u901F\u5177\
+    \u4F53\u53C2\u6570\u503C(\u6700\u5927\u98CE\u901F/\u6700\u5C0F\u98CE\u901F/\u4E2D\
+    \u7B49\u98CE\u901F))/\u6267\u884C"
+- steps:
+  - entities:
+    - sensorvalue: "\u4E09\u6863"
+    - device: "\u98CE\u6247"
+    intent: Control-Fan_Gear
+  - action: action_fan_gear
+  story: "\u8C03\u6574\u98CE\u6247\u7684\u6863\u4F4D\u7EA7\u522B(\u6240\u6709\u4FE1\
+    \u606F\u9F50\u5168\uFF0C\u5177\u4F53\u7684\u98CE\u6247\u8BBE\u5907\uFF0C\u6863\
+    \u4F4D\u5177\u4F53\u53C2\u6570\u503C(\u4E09\u6863/\u4E8C\u6321/\u4E00\u6863))/\u6267\
+    \u884C"
+- steps:
+  - entities:
+    - operation: "\u8C03\u9AD8"
+    - device: "\u98CE\u6247"
+    intent: Control-Fan_Gear
+  - action: action_fan_gear
+  story: "\u8C03\u6574\u98CE\u6247\u7684\u6863\u4F4D\u7EA7\u522B(\u6240\u6709\u4FE1\
+    \u606F\u9F50\u5168\uFF0C\u5177\u4F53\u7684\u98CE\u6247\u8BBE\u5907\uFF0C\u6863\
+    \u4F4D\u8C03\u9AD8\u8C03\u4F4E)/\u6267\u884C"
+- steps:
+  - entities:
+    - mode: "\u5DE6\u53F3\u626B\u98CE"
+    - device: "\u98CE\u6247"
+    intent: Control-Fan_Mode
+  - action: action_fan_mode
+  story: "\u8C03\u6574\u98CE\u6247\u7684\u6A21\u5F0F(\u6240\u6709\u4FE1\u606F\u9F50\
+    \u5168\uFF0C\u5177\u4F53\u7684\u98CE\u6247\u8BBE\u5907\uFF0C\u5177\u4F53\u6A21\
+    \u5F0F) \u98CE\u6247\u8C03\u6574\u81F3XX\u6A21\u5F0F /\u6267\u884C"
+- steps:
+  - entities:
+    - mode: "\u5DE6\u53F3\u626B\u98CE"
+    - device: "\u98CE\u6247"
+    - operation: "\u5173\u95ED"
+    intent: Control-Fan_Mode
+  - action: action_fan_mode
+  story: "\u8C03\u6574\u98CE\u6247\u7684\u6A21\u5F0F(\u6240\u6709\u4FE1\u606F\u9F50\
+    \u5168\uFF0C\u5177\u4F53\u7684\u98CE\u6247\u8BBE\u5907\uFF0C\u5177\u4F53\u6A21\
+    \u5F0F) \u98CE\u6247XX\u6A21\u5F0F\u5173\u95ED \u5173\u95EDXX\u6A21\u5F0F /\u6267\
+    \u884C"
+- steps:
+  - entities:
+    - time: "\u4E00\u5C0F\u65F6"
+    - operation: "\u5173\u95ED"
+    - device: "\u98CE\u6247"
+    intent: Control-Fan_Timing
+  - action: fantiming_form
+  story: "\u63A7\u5236\u98CE\u6247\u5B9A\u65F6\u64CD\u4F5C\uFF0C\u6240\u6709\u4FE1\
+    \u606F\u9F50\u5168/\u65E0\u9700\u6F84\u6E05\u69FD\u4F4D\u4FE1\u606F/\u76F4\u63A5\
+    \u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u98CE\u6247"
+    intent: Control-Fan_State
+  - action: action_fan_state
+  - entities:
+    - time: "\u4E00\u5C0F\u65F6"
+    intent: Control-Fan_Timing
+  - action: fantiming_form
+  story: "\u6253\u5F00\u98CE\u6247/\u5B9A\u65F6\u4E00\u5C0F\u65F6(\u5DF2\u6709\u69FD\
+    \u4F4Doperation\u6253\u5F00)/\u6267\u884C\u5B9A\u65F6\u4E00\u5C0F\u65F6\u540E\u6253\
+    \u5F00\u98CE\u6247"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u98CE\u6247"
+    intent: Control-Fan_State
+  - action: action_fan_state
+  - entities:
+    - time: "\u4E00\u5C0F\u65F6"
+    intent: Control-Fan_Timing
+  - action: fantiming_form
+  story: "\u6253\u5F00\u98CE\u6247/\u5B9A\u65F6\u4E00\u4E2A\u5C0F\u65F6(\u6CA1\u6709\
+    operation\u69FD\u4F4D\u4FE1\u606F \u9700\u8981\u6F84\u6E05)/\u8BF7\u95EE\u6267\
+    \u884C\u4EC0\u4E48\u64CD\u4F5C/\u5173\u95ED/\u5DF2\u4E3A\u60A8\u8BBE\u7F6E\u98CE\
+    \u6247\u4E00\u5C0F\u65F6\u540E\u5173\u95ED"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u52A0\u6E7F\u5668"
+    intent: Control-Humidifier_State
+  - action: action_humidifierstate
+  story: "\u52A0\u6E7F\u5668\u7684\u5F00\u5173\u72B6\u6001\u63A7\u5236\u81EA\u5B9A\
+    \u4E49\u5BF9\u8BDD\u6A21\u677F \u6253\u5F00/\u5173\u95ED \u52A0\u6E7F\u5668"
+- steps:
+  - entities:
+    - gear_level: "\u4E09\u6863"
+    - device: "\u52A0\u6E7F\u5668"
+    intent: Control-Humidifier_Gear
+  - action: action_humidifiergear
+  story: "\u8C03\u6574\u52A0\u6E7F\u5668\u7684\u6863\u4F4D\u7EA7\u522B(\u6240\u6709\
+    \u4FE1\u606F\u9F50\u5168\uFF0C\u5177\u4F53\u7684\u52A0\u6E7F\u5668\u8BBE\u5907\
+    \uFF0C\u6863\u4F4D\u5177\u4F53\u53C2\u6570\u503C(\u4E09\u6863/\u4E8C\u6321/\u4E00\
+    \u6863))/\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u8C03\u9AD8"
+    - device: "\u52A0\u6E7F\u5668"
+    intent: Control-Humidifier_Gear
+  - action: action_humidifiergear
+  story: "\u8C03\u6574\u52A0\u6E7F\u5668\u7684\u6863\u4F4D\u7EA7\u522B(\u6240\u6709\
+    \u4FE1\u606F\u9F50\u5168 \uFF0C\u5177\u4F53\u7684\u52A0\u6E7F\u5668\u8BBE\u5907\
+    \uFF0C\u6863\u4F4D\u8C03\u9AD8\u8C03\u4F4E)/\u6267\u884C"
+- steps:
+  - entities:
+    - device: "\u52A0\u6E7F\u5668"
+    - time: "\u4E00\u4E2A\u5C0F\u65F6"
+    - operation: "\u5173\u95ED"
+    intent: Control-Humidifier_Timing
+  - action: action_humidifiertiming
+  story: "\u52A0\u6E7F\u5668\u7684\u5B9A\u65F6\u63A7\u5236\u81EA\u5B9A\u4E49\u5BF9\
+    \u8BDD\u6A21\u677F \u5B9A\u65F6X\u5C0F\u65F6\u5173\u95ED"
+- steps:
+  - intent: Request-Humidifier_Humidity
+  - action: action_requesthumidity
+  story: "\u9488\u5BF9\u52A0\u6E7F\u5668\u67E5\u8BE2\u5F53\u524D\u5BA4\u5185\u6E7F\
+    \u5EA6\u503C"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u7535\u996D\u7172"
+    intent: Control-RiceCooker_State
+  - action: action_RiceCookerstate
+  story: "\u7535\u996D\u7172\u7684\u5F00\u5173\u72B6\u6001\u63A7\u5236\u81EA\u5B9A\
+    \u4E49\u5BF9\u8BDD\u6A21\u677F \u6253\u5F00/\u5173\u95ED \u7535\u996D\u7172"
+- steps:
+  - entities:
+    - device: "\u7535\u996D\u7172"
+    - mode: "\u7172\u6C64\u6A21\u5F0F"
+    intent: Control-RiceCooker_Mode
+  - action: action_RiceCookermode
+  story: "\u7535\u996D\u7172\u7684\u6A21\u5F0F\u72B6\u6001\u63A7\u5236\u81EA\u5B9A\
+    \u4E49\u5BF9\u8BDD\u6A21\u677F \u7535\u996D\u7172 \u7172\u6C64\u6A21\u5F0F"
+- steps:
+  - entities:
+    - device: "\u7535\u996D\u7172"
+    - time: "\u4E00\u4E2A\u5C0F\u65F6"
+    intent: Control-RiceCooker_Timing
+  - action: action_RiceCookertiming
+  story: "\u7535\u996D\u7172\u7684\u5F00\u5173\u72B6\u6001\u63A7\u5236\u81EA\u5B9A\
+    \u4E49\u5BF9\u8BDD\u6A21\u677F \u5B9A\u65F6X\u5C0F\u65F6\u505A\u597D"
+- steps:
+  - entities:
+    - device: "\u7A97\u5E18"
+    - operation: "\u6253\u5F00"
+    intent: Control-Curtain_State
+  - action: action_curtain_state
+  story: "open or close \u7A97\u5E18--\u65E0\u5177\u4F53\u9700\u8981\u6307\u660E\u7684\
+    \u8BBE\u5907\u540D\u79F0\uFF0C\u5355\u72EC\u7684\uFF0C\u6CA1\u6709\u9644\u52A0\
+    \u53C2\u6570\u503C"
+- steps:
+  - entities:
+    - device: "\u7A97\u5E18"
+    - operation: "\u6253\u5F00"
+    - sensorvalue: "\u4E00\u534A"
+    intent: Control-Curtain_State
+  - action: action_curtain_state
+  story: "open or close \u7A97\u5E18--\u65E0\u5177\u4F53\u9700\u8981\u6307\u660E\u7684\
+    \u8BBE\u5907\u540D\u79F0\uFF0C\u5355\u72EC\u7684\uFF0C\u5E26\u6709\u9644\u52A0\
+    \u53C2\u6570\u503C"
+- steps:
+  - entities:
+    - device: "\u7A97\u5E18"
+    - operation: "\u5173\u95ED"
+    intent: Control-Curtain_State
+  - action: action_curtain_state
+  story: "open or close \u7A97\u5E18--\u65E0\u5177\u4F53\u9700\u8981\u6307\u660E\u7684\
+    \u8BBE\u5907\u540D\u79F0\uFF0C\u5355\u72EC\u7684 \u6CA1\u6709\u9644\u52A0\u7684\
+    \u53C2\u6570\u503C"
+- steps:
+  - entities:
+    - device: "\u7A97\u5E18"
+    - operation: "\u5173\u95ED"
+    - sensorvalue: "\u4E00\u534A"
+    intent: Control-Curtain_State
+  - action: action_curtain_state
+  story: "open or close \u7A97\u5E18--\u65E0\u5177\u4F53\u9700\u8981\u6307\u660E\u7684\
+    \u8BBE\u5907\u540D\u79F0\uFF0C\u5355\u72EC\u7684 \u6CA1\u6709\u9644\u52A0\u7684\
+    \u53C2\u6570\u503C"
+- steps:
+  - entities:
+    - device: "\u7A97\u5E18"
+    - date_time: "\u660E\u5929\u65E9\u4E0A"
+    - time: "\u4E03\u70B9\u534A"
+    - operation: "\u6253\u5F00"
+    intent: Control-Curtain_Timing
+  - action: action_curtain_timing
+  story: "timing \u7A97\u5E18--\u5B9A\u65F6\u64CD\u4F5C \u6253\u5F00\uFF0C\u5355\u72EC\
+    \u7684 \u6CA1\u6709\u9644\u52A0\u7684\u53C2\u6570\u503C"
+- steps:
+  - entities:
+    - device: "\u7A97\u5E18"
+    - date_time: "\u660E\u5929\u65E9\u4E0A"
+    - time: "\u4E03\u70B9\u534A"
+    - operation: "\u6253\u5F00"
+    - sensorvalue: "\u4E00\u534A"
+    intent: Control-Curtain_Timing
+  - action: action_curtain_timing
+  story: "open or close \u7A97\u5E18--\u65E0\u5177\u4F53\u9700\u8981\u6307\u660E\u7684\
+    \u8BBE\u5907\u540D\u79F0\uFF0C\u5355\u72EC\u7684 \u6CA1\u6709\u9644\u52A0\u7684\
+    \u53C2\u6570\u503C"
+- steps:
+  - entities:
+    - device: "\u70E4\u7BB1"
+    - operation: "\u542F\u52A8"
+    intent: Control-Oven_State
+  - action: action_ovenstate
+  story: "open or close \u70E4\u7BB1--\u65E0\u5177\u4F53\u9700\u8981\u6307\u660E\u7684\
+    \u8BBE\u5907\u540D\u79F0\uFF0C\u5355\u72EC\u7684"
+- steps:
+  - entities:
+    - device: "\u70E4\u7BB1"
+    - operation: "\u5173\u95ED"
+    intent: Control-Oven_State
+  - action: action_ovenstate
+  story: "open or close \u70E4\u7BB1--\u65E0\u5177\u4F53\u9700\u8981\u6307\u660E\u7684\
+    \u8BBE\u5907\u540D\u79F0\uFF0C\u5355\u72EC\u7684"
+- steps:
+  - entities:
+    - mode: "\u70E4\u9E21\u6A21\u5F0F"
+    - device: "\u70E4\u7BB1"
+    intent: Control-Oven_Mode
+  - action: action_ovenmode
+  story: "\u8C03\u6574\u70E4\u7BB1\u7684\u6A21\u5F0F(\u6240\u6709\u4FE1\u606F\u9F50\
+    \u5168\uFF0C\u5177\u4F53\u7684\u70E4\u7BB1\u8BBE\u5907\uFF0C\u5177\u4F53\u6A21\
+    \u5F0F) \u70E4\u7BB1\u8C03\u6574\u81F3XX\u6A21\u5F0F /\u6267\u884C"
+- steps:
+  - entities:
+    - device: "\u70E4\u7BB1"
+    - temperature: "\u4E00\u767E\u516B\u5341\u5EA6"
+    intent: Control-Oven_Temp
+  - action: action_oventemp
+  story: "\u70E4\u7BB1\u6E29\u5EA6\u63A7\u5236  \u6240\u6709\u4FE1\u606F\u9F50\u5168\
+    \ xx\u70E4\u7BB1 \u6E29\u5EA6 \u8BBE\u7F6E\u4E3A X\u5EA6"
+- steps:
+  - entities:
+    - address: "\u4E3B\u5367"
+    - device: "\u7A7A\u8C03"
+    - operation: "\u6253\u5F00"
+    intent: Control-AC_Open
+  - action: action_open_ac
+  story: "open AC--\u5177\u4F53\u7A7A\u8C03\u8BBE\u5907\u6307\u660E"
+- steps:
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - operation: "\u6253\u5F00"
+    intent: Control-AC_Open
+  - action: action_open_ac
+  - entities:
+    - address: "\u5BA2\u5385"
+    - device: "\u7A7A\u8C03"
+    intent: inform_ac
+  - action: action_open_ac
+  story: "open AC2--\u672A\u6307\u660E\u5177\u4F53\u7A7A\u8C03\u8BBE\u5907/\u8BE2\u95EE\
+    \u5177\u4F53\u8BBE\u5907/\u786E\u8BA4\u7A7A\u8C03/\u6267\u884C"
+- steps:
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - operation: "\u6253\u5F00"
+    intent: Control-AC_Open
+  - action: action_open_ac
+  - entities:
+    - address: "\u5BA2\u5385"
+    intent: inform_room
+  - action: action_open_ac
+  story: "open AC3--\u672A\u6307\u660E\u5177\u4F53\u7A7A\u8C03\u8BBE\u5907/\u8BE2\u95EE\
+    \u5177\u4F53\u8BBE\u5907/\u786E\u8BA4\u623F\u95F4/\u6267\u884C"
+- steps:
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - operation: "\u6253\u5F00"
+    intent: Control-AC_Open
+  - action: action_open_ac
+  - entities:
+    - range: "\u6240\u6709"
+    intent: inform_range
+  - action: action_open_ac
+  story: "open AC4--\u672A\u6307\u660E\u5177\u4F53\u7A7A\u8C03\u8BBE\u5907/\u8BE2\u95EE\
+    \u5177\u4F53\u8BBE\u5907/\u786E\u8BA4\u5168\u90E8\u7684\u7A7A\u8C03/\u6267\u884C"
+- steps:
+  - entities:
+    - range: "\u6240\u6709"
+    - device: "\u7A7A\u8C03"
+    - operation: "\u6253\u5F00"
+    intent: Control-AC_Open
+  - action: action_open_ac
+  story: "open AC3--\u6307\u660E\u6240\u6709\u7684\u7A7A\u8C03"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u7A7A\u8C03"
+    intent: Control-AC_Open
+  - action: action_open_ac
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - address: "\u5BA2\u5385"
+    intent: inform_ac
+  - action: action_open_ac
+  story: "\u786C\u7F16\u7801\u56DE\u590D\u7A7A\u8C03\u6253\u5F00--\u6F84\u6E05\u5177\
+    \u4F53\u8BBE\u5907/\u7528\u6237\u786E\u8BA4\u8BBE\u5907/\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u7A7A\u8C03"
+    intent: Control-AC_Open
+  - action: action_open_ac
+  - entities:
+    - address: "\u5BA2\u5385"
+    intent: inform_room
+  - action: action_open_ac
+  story: "\u786C\u7F16\u7801\u56DE\u590D\u7A7A\u8C03\u8BBE\u5907\u6253\u5F00--\u6F84\
+    \u6E05\u5177\u4F53\u8BBE\u5907/\u7528\u6237\u786E\u8BA4\u623F\u95F4/\u6267\u884C"
+- steps:
+  - entities:
+    - address: "\u5BA2\u5385"
+    - device: "\u7A7A\u8C03"
+    - operation: "\u5173\u95ED"
+    intent: Control-AC_Close
+  - action: action_close_ac
+  story: "close AC1--\u5177\u4F53\u6307\u660E\u7A7A\u8C03\u8BBE\u5907"
+- steps:
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - operation: "\u5173\u95ED"
+    intent: Control-AC_Close
+  - action: action_close_ac
+  - entities:
+    - address: "\u5BA2\u5385"
+    - device: "\u7A7A\u8C03"
+    intent: inform_ac
+  - action: action_close_ac
+  story: "close AC2--\u672A\u6307\u660E\u5177\u4F53\u7A7A\u8C03\u8BBE\u5907\uFF0C\u9700\
+    \u8981\u8FDB\u4E00\u6B65\u6F84\u6E05"
+- steps:
+  - entities:
+    - range: "\u6240\u6709"
+    - device: "\u7A7A\u8C03"
+    - operation: "\u5173\u95ED"
+    intent: Control-AC_Close
+  - action: action_close_ac
+  story: "close AC3--\u6307\u660E\u6240\u6709\u7684\u7A7A\u8C03\u8BBE\u5907"
+- steps:
+  - entities:
+    - operation: "\u5173\u95ED"
+    - device: "\u7A7A\u8C03"
+    intent: Control-AC_Close
+  - action: action_close_ac
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - address: "\u4E66\u623F"
+    intent: inform_ac
+  - action: action_close_ac
+  story: "\u786C\u7F16\u7801\u56DE\u590D\u63A7\u5236\u7A7A\u8C03\u5173\u95ED \u786E\
+    \u8BA4\u5177\u4F53\u7A7A\u8C03\u8BBE\u5907"
+- steps:
+  - entities:
+    - operation: "\u5173\u95ED"
+    - device: "\u7A7A\u8C03"
+    intent: Control-AC_Close
+  - action: action_close_ac
+  - entities:
+    - address: "\u4E3B\u5367"
+    intent: inform_room
+  - action: action_close_ac
+  story: "\u786C\u7F16\u7801\u56DE\u590D\u63A7\u5236\u7A7A\u8C03\u5173\u95ED \u786E\
+    \u8BA4\u5177\u4F53\u623F\u95F4"
+- steps:
+  - entities:
+    - operation: "\u5173\u95ED"
+    - device: "\u7A7A\u8C03"
+    intent: Control-AC_Close
+  - action: action_close_ac
+  - entities:
+    - range: "\u6240\u6709"
+    intent: inform_range
+  - action: action_close_ac
+  story: "\u786C\u7F16\u7801\u56DE\u590D\u63A7\u5236\u7A7A\u8C03\u5173\u95ED \u786E\
+    \u8BA4\u5168\u90E8\u7684\u7A7A\u8C03"
+- steps:
+  - entities:
+    - address: "\u5BA2\u5385"
+    - device: "\u7A7A\u8C03"
+    - mode: "\u5236\u70ED\u6A21\u5F0F"
+    intent: Control-AC_Mode
+  - action: acmode_form
+  story: "\u63A7\u5236\u7A7A\u8C03\u6A21\u5F0F/(\u69FD\u4F4D\u4FE1\u606F\u9F50\u5168\
+    )/\u76F4\u63A5\u6267\u884CAction"
+- steps:
+  - entities:
+    - mode: "\u8282\u80FD\u6A21\u5F0F"
+    intent: Control-AC_Mode
+  - action: acmode_form
+  - entities:
+    - address: "\u5BA2\u5385"
+    - device: "\u7A7A\u8C03"
+    intent: inform_ac
+  - action: acmode_form
+  story: "\u8C03\u6574\u7A7A\u8C03\u6A21\u5F0F(\u672A\u6307\u660E\u5177\u4F53\u623F\
+    \u95F4\u7A7A\u8C03\u4F46\u76EE\u6807\u6A21\u5F0F\u9F50\u5168)/\u8BE2\u95EE\u623F\
+    \u95F4(\u5177\u4F53\u7A7A\u8C03)/\u786E\u8BA4/\u6267\u884C"
+- steps:
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - mode: "\u8282\u80FD\u6A21\u5F0F"
+    intent: Control-AC_Mode
+  - action: acmode_form
+  - entities:
+    - address: "\u4E3B\u5367"
+    - device: "\u7A7A\u8C03"
+    intent: inform_ac
+  - action: acmode_form
+  story: "interactive_story_1 \u8C03\u6574\u7A7A\u8C03\u6A21\u5F0F(\u672A\u6307\u660E\
+    \u5177\u4F53\u7A7A\u8C03\u8BBE\u5907)/\u8BE2\u95EE\u5177\u4F53\u8BBE\u5907/\u56DE\
+    \u590D\u623F\u95F4/\u8C03\u7528acmode_form\u8FDB\u884C\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u7A7A\u8C03"
+    - address: "\u4E66\u623F"
+    intent: Control-AC_Open
+  - action: action_open_ac
+  - entities:
+    - mode: "\u8282\u80FD\u6A21\u5F0F"
+    intent: Control-AC_Mode
+  - action: acmode_form
+  - entities:
+    - mode: "\u5DE6\u53F3\u626B\u98CE"
+    intent: Control-AC_Mode
+  - action: acmode_form
+  story: "\u7A7A\u8C03\u6A21\u5F0F\u63A7\u5236/\u6253\u5F00/\u8C03\u6210xx\u6A21\u5F0F\
+    /\u5173\u95EDxx\u6A21\u5F0F"
+- steps:
+  - entities:
+    - time: "\u4E00\u5C0F\u65F6"
+    - operation: "\u5173\u95ED"
+    - device: "\u7A7A\u8C03"
+    - address: "\u4E3B\u5367"
+    intent: Control-AC_Timing
+  - action: actiming_form
+  story: "\u63A7\u5236\u7A7A\u8C03\u5B9A\u65F6\u64CD\u4F5C\uFF0C\u6240\u6709\u4FE1\
+    \u606F\u9F50\u5168/\u65E0\u9700\u6F84\u6E05\u69FD\u4F4D\u4FE1\u606F/\u76F4\u63A5\
+    \u6267\u884C"
+- steps:
+  - entities:
+    - time: "\u4E00\u5C0F\u65F6"
+    - operation: "\u5173\u95ED"
+    - device: "\u7A7A\u8C03"
+    intent: Control-AC_Timing
+  - action: actiming_form
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - address: "\u4E3B\u5367"
+    intent: inform_ac
+  - action: actiming_form
+  story: "\u63A7\u5236\u7A7A\u8C03\u5B9A\u65F6\u64CD\u4F5C \u5B9A\u65F6\u5173\u95ED\
+    \u7A7A\u8C03(\u5177\u4F53\u7A7A\u8C03\u8BBE\u5907\u4FE1\u606F\u672A\u6307\u660E\
+    (\u9700\u8981\u660E\u786E\u4E3B\u5367/\u5BA2\u5385/\u4E66\u623F) \u5176\u4ED6\u4FE1\
+    \u606F\u9F50\u5168)/\u6F84\u6E05\u5177\u4F53\u8BBE\u5907/\u7528\u6237\u56DE\u590D\
+    \u5177\u4F53 [\u7A7A\u8C03] /\u7EE7\u7EED\u6267\u884C"
+- steps:
+  - entities:
+    - time: "\u4E00\u5C0F\u65F6"
+    - operation: "\u5173\u95ED"
+    - device: "\u7A7A\u8C03"
+    intent: Control-AC_Timing
+  - action: actiming_form
+  - entities:
+    - address: "\u4E3B\u5367"
+    intent: inform_room
+  - action: actiming_form
+  story: "\u63A7\u5236\u7A7A\u8C03\u5B9A\u65F6\u64CD\u4F5C \u5B9A\u65F6\u5173\u95ED\
+    \u7A7A\u8C03(\u7A7A\u8C03\u4FE1\u606F\u672A\u6307\u660E \u5176\u4ED6\u4FE1\u606F\
+    \u9F50\u5168)/\u6F84\u6E05\u5177\u4F53\u8BBE\u5907/\u7528\u6237\u56DE\u590D [\u623F\
+    \u95F4] /\u7EE7\u7EED\u6267\u884C"
+- steps:
+  - intent: Control-AC_Timing
+  - action: actiming_form
+  - entities:
+    - time: "\u4E00\u5C0F\u65F6"
+    - operation: "\u5173\u95ED"
+    - device: "\u7A7A\u8C03"
+    intent: Control-AC_Timing
+  - action: actiming_form
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - address: "\u4E3B\u5367"
+    intent: inform_ac
+  - action: actiming_form
+  story: "\u63A7\u5236\u7A7A\u8C03\u5B9A\u65F6\u64CD\u4F5C(\u5B9A\u65F6\u65F6\u95F4\
+    \uFF0C\u5B9A\u65F6\u64CD\u4F5C\uFF0C\u76EE\u6807\u8BBE\u5907\u90FD\u4E0D\u660E\
+    \u786E)/\u6F84\u6E05\u8BBE\u5907/\u6F84\u6E05\u64CD\u4F5C/\u6F84\u6E05\u65F6\u95F4"
+- steps:
+  - entities:
+    - time: "\u4E94\u5C0F\u65F6"
+    - operation: "\u5173\u95ED"
+    - device: "\u7A7A\u8C03"
+    intent: Control-AC_Timing
+  - action: actiming_form
+  - entities:
+    - address: "\u4E3B\u5367"
+    intent: inform_room
+  - action: actiming_form
+  story: "\u7A7A\u8C03\u5B9A\u65F6\u64CD\u4F5C,\u8BE2\u95EE\u5177\u4F53\u8BBE\u5907\
+    ,\u56DE\u590D\u623F\u95F4\u540D\u79F0"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u7A7A\u8C03"
+    intent: Control-AC_Open
+  - action: action_open_ac
+  - entities:
+    - address: "\u4E3B\u5367"
+    intent: inform_room
+  - action: action_open_ac
+  - entities:
+    - time: "\u4E00\u5C0F\u65F6"
+    - operation: "\u5173\u95ED"
+    intent: Control-AC_Timing
+  - action: actiming_form
+  story: "\u6253\u5F00\u7A7A\u8C03(\u54EA\u4E2A\u7A7A\u8C03\u8BBE\u5907)/\u4E3B\u5367\
+    \u7684(\u6B63\u5728\u4E3A\u60A8\u6253\u5F00\u4E3B\u5367\u7A7A\u8C03)/\u5B9A\u65F6\
+    \u4E00\u5C0F\u65F6\u540E\u5173\u95ED(\u5DF2\u4E3A\u60A8\u5C06\u4E3B\u5367\u7A7A\
+    \u8C03\u8BBE\u7F6E\u4E00\u5C0F\u65F6\u540E\u5173\u95ED)"
+- steps:
+  - entities:
+    - operation: "\u589E\u5927"
+    - target: "\u98CE\u901F"
+    - device: "\u7A7A\u8C03"
+    - address: "\u5BA2\u5385"
+    intent: Control-AC_Wind
+  - action: action_controlDeviceWind
+  story: "\u8C03\u6574\u7A7A\u8C03\u7684\u98CE\u901F(\u6240\u6709\u4FE1\u606F\u9F50\
+    \u5168\uFF0C\u5177\u4F53\u7684\u7A7A\u8C03\u8BBE\u5907\uFF0C\u98CE\u901F\u8C03\
+    \u9AD8\u6216\u8005\u662F\u8C03\u4F4E)/\u6267\u884C"
+- steps:
+  - entities:
+    - sensorvalue: "\u6700\u5927"
+    - target: "\u98CE\u901F"
+    - device: "\u5BA2\u5385"
+    - address: "\u5BA2\u5385"
+    intent: Control-AC_Wind
+  - action: action_controlDeviceWind
+  story: "\u8C03\u6574\u7A7A\u8C03\u7684\u98CE\u901F(\u6240\u6709\u4FE1\u606F\u9F50\
+    \u5168\uFF0C\u5177\u4F53\u7684\u7A7A\u8C03\u8BBE\u5907\uFF0C\u98CE\u901F\u5177\
+    \u4F53\u53C2\u6570\u503C(\u6700\u5927\u98CE\u901F/\u6700\u5C0F\u98CE\u901F/\u4E2D\
+    \u7B49\u98CE\u901F))/\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u8C03\u9AD8"
+    - target: "\u98CE\u901F"
+    - device: "\u7A7A\u8C03"
+    intent: Control-AC_Wind
+  - action: action_controlDeviceWind
+  - entities:
+    - address: "\u4E3B\u5367"
+    intent: inform_room
+  - action: action_controlDeviceWind
+  story: "\u8C03\u6574\u7A7A\u8C03\u7684\u98CE\u901F(\u65E0\u6307\u660E\u5177\u4F53\
+    \u7A7A\u8C03\u8BBE\u5907)/\u786E\u8BA4 \u623F\u95F4 /\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u8C03\u9AD8"
+    - device: "\u7A7A\u8C03"
+    - target: "\u98CE\u901F"
+    intent: Control-AC_Wind
+  - action: action_controlDeviceWind
+  - entities:
+    - address: "\u4E3B\u5367"
+    intent: inform_room
+  - action: action_controlDeviceWind
+  story: "\u8C03\u6574\u7A7A\u8C03\u7684\u98CE\u901F(\u65E0\u6307\u660E\u5177\u4F53\
+    \u7A7A\u8C03\u8BBE\u5907)/\u786E\u8BA4 \u623F\u95F4 /\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u8C03\u9AD8"
+    - device: "\u7A7A\u8C03"
+    - address: "\u4E3B\u5367"
+    - target: "\u98CE\u901F"
+    intent: Control-AC_Wind
+  - action: action_controlDeviceWind
+  story: "\u8C03\u6574\u4E3B\u5367\u7A7A\u8C03\u7684\u98CE\u901F(\u6709\u5177\u4F53\
+    \u8BBE\u5907\u65E0\u64CD\u4F5C\u4FE1\u606F)/\u786E\u8BA4 \u64CD\u4F5C /\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u8C03\u9AD8"
+    - device: "\u7A7A\u8C03"
+    - target: "\u98CE\u901F"
+    intent: Control-AC_Wind
+  - action: action_controlDeviceWind
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - address: "\u4E3B\u5367"
+    intent: inform_ac
+  - action: action_controlDeviceWind
+  story: "\u8C03\u6574\u7A7A\u8C03\u7684\u98CE\u901F(\u65E0\u6307\u660E\u5177\u4F53\
+    \u7A7A\u8C03\u8BBE\u5907)/\u786E\u8BA4 \u8BBE\u5907 /\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u7A7A\u8C03"
+    - address: "\u4E3B\u5367"
+    intent: Control-AC_Open
+  - action: action_open_ac
+  - entities:
+    - sensorvalue: "\u6700\u5927"
+    - target: "\u98CE\u901F"
+    intent: Control-AC_Wind
+  - action: action_controlDeviceWind
+  - entities:
+    - sensorvalue: "\u6700\u5C0F"
+    - target: "\u98CE\u901F"
+    intent: Control-AC_Wind
+  - action: action_controlDeviceWind
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - address: "\u4E3B\u5367"
+    intent: inform_ac
+  - action: action_controlDeviceWind
+  story: "interactive_story_1 \u8C03\u6574\u7A7A\u8C03\u98CE\u901F/\u6253\u5F00/\u8C03\
+    \u5230\u6700\u5927/\u8C03\u5230\u6700\u5C0F/\u8BE2\u95EE\u8BBE\u5907/\u786E\u8BA4\
+    \u8BBE\u5907/\u6267\u884C"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u7A7A\u8C03"
+    - address: "\u4E66\u623F"
+    intent: Control-AC_Open
+  - action: action_open_ac
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - address: "\u4E66\u623F"
+    - operation: "\u589E\u5927"
+    - target: "\u98CE\u901F"
+    intent: Control-AC_Wind
+  - action: action_controlDeviceWind
+  story: "interactive_story_1 \u6253\u5F00\u4E66\u623F\u7A7A\u8C03/\u4E66\u623F\u7A7A\
+    \u8C03\u98CE\u901F\u8C03\u9AD8"
+- steps:
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - address: "\u4E3B\u5367"
+    - operation: "\u8C03\u9AD8\u5230"
+    - temperature: "\u4E8C\u5341\u5EA6"
+    intent: Control-AC_Temp
+  - action: action_controlactemp
+  story: "\u7A7A\u8C03\u6E29\u5EA6\u63A7\u5236  \u6240\u6709\u4FE1\u606F\u9F50\u5168\
+    \ xx\u7A7A\u8C03 \u6E29\u5EA6 \u8C03\u9AD8\u5230 X\u5EA6"
+- steps:
+  - entities:
+    - address: "\u5BA2\u5385"
+    - device: "\u7A7A\u8C03"
+    - operation: "\u8C03\u9AD8"
+    - temperature: "\u4E00\u5EA6"
+    intent: Control-AC_Temp
+  - action: action_controlactemp
+  story: "\u7A7A\u8C03\u6E29\u5EA6\u63A7\u5236  \u6240\u6709\u4FE1\u606F\u9F50\u5168\
+    \ xx\u7A7A\u8C03 \u6E29\u5EA6 \u8C03\u9AD8 X\u5EA6"
+- steps:
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - address: "\u4E3B\u5367"
+    - operation: "\u6253\u5F00"
+    intent: Control-AC_Open
+  - action: action_open_ac
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - operation: "\u8C03\u9AD8\u5230"
+    - temperature: "\u4E8C\u5341\u4E94\u5EA6"
+    intent: Control-AC_Temp
+  - action: action_controlactemp
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - operation: "\u8C03\u9AD8"
+    - temperature: "\u4E24\u5EA6"
+    intent: Control-AC_Temp
+  - action: action_controlactemp
+  - entities:
+    - operation: "\u5173\u95ED"
+    - device: "\u7A7A\u8C03"
+    intent: Control-AC_Close
+  - action: action_close_ac
+  story: "interactive_story_1 \u7A7A\u8C03\u6E29\u5EA6\u63A7\u5236-\u6253\u5F00/\u6E29\
+    \u5EA6\u8C03\u8282(\u8C03\u9AD8\u5230 X\u5EA6) \u8BBE\u5907\u4FE1\u606F\u9F50\u5168\
+    \ \u65E0\u9700\u6F84\u6E05/\u6E29\u5EA6\u8C03\u8282(\u8C03\u9AD8 X\u5EA6)/\u5173\
+    \u95ED"
+- steps:
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - operation: "\u8C03\u9AD8\u5230"
+    - temperature: "\u4E8C\u5341\u4E94\u5EA6"
+    intent: Control-AC_Temp
+  - action: action_controlactemp
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - address: "\u4E3B\u5367"
+    intent: inform_ac
+  - action: action_controlactemp
+  story: "\u7A7A\u8C03\u6E29\u5EA6\u63A7\u5236/\u6E29\u5EA6\u8C03\u8282(\u8C03\u9AD8\
+    \u5230 X\u5EA6)device\u4FE1\u606F\u4E0D\u5168\uFF0C\u9700\u8981\u8FDB\u884C\u6F84\
+    \u6E05(\u6F84\u6E05\u7684\u60C5\u51B5\u4E3A \u8BBE\u5907)/\u6839\u636E\u586B\u5145\
+    \u7684\u69FD\u4F4D\u4FE1\u606F\u8FDB\u884C\u6267\u884C"
+- steps:
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - operation: "\u8C03\u9AD8\u5230"
+    - temperature: "\u4E8C\u5341\u4E94\u5EA6"
+    intent: Control-AC_Temp
+  - action: action_controlactemp
+  - entities:
+    - address: "\u4E3B\u5367"
+    intent: inform_room
+  - action: action_controlactemp
+  story: "\u7A7A\u8C03\u6E29\u5EA6\u63A7\u5236/\u6E29\u5EA6\u8C03\u8282(\u8C03\u9AD8\
+    \u5230 X\u5EA6)device\u4FE1\u606F\u4E0D\u5168\uFF0C\u9700\u8981\u8FDB\u884C\u6F84\
+    \u6E05(\u6F84\u6E05\u7684\u60C5\u51B5\u4E3A \u623F\u95F4)/\u6E29\u5EA6\u8C03\u8282\
+    (\u8C03\u9AD8 X\u5EA6)"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u7A7A\u8C03"
+    intent: Control-AC_Open
+  - action: action_open_ac
+  - entities:
+    - address: "\u4E3B\u5367"
+    intent: inform_ac
+  - action: action_open_ac
+  - entities:
+    - temperature: "\u4E8C\u5341\u4E94\u5EA6"
+    - target: "\u6E29\u5EA6"
+    intent: Control-AC_Temp
+  - action: action_controlactemp
+  story: "\u6253\u5F00\u7A7A\u8C03/\u4E3B\u5367\u7A7A\u8C03/\u628A\u6E29\u5EA6(\u8C03\
+    \u9AD8\u672A\u8BC6\u522B\u5230)/AC_temp"
+- steps:
+  - entities:
+    - operation: "\u6253\u5F00"
+    - device: "\u7A7A\u8C03"
+    intent: Control-AC_Open
+  - action: action_open_ac
+  - entities:
+    - address: "\u5BA2\u5385"
+    intent: inform_ac
+  - action: action_open_ac
+  - entities:
+    - target: "\u6E29\u5EA6"
+    - operation: "\u8C03\u9AD8"
+    intent: Control-AC_Temp
+  - action: action_controlactemp
+  story: "\u6253\u5F00\u7A7A\u8C03/\u4E3B\u5367\u7A7A\u8C03/\u628A\u6E29\u5EA6(\u8C03\
+    \u9AD8\u8BC6\u522B\u5230)/AC_temp"
+- steps:
+  - entities:
+    - device: "\u7A7A\u8C03"
+    - target: "\u6E29\u5EA6"
+    - operation: "\u8C03\u9AD8"
+    intent: Control-AC_Temp
+  - action: action_controlactemp
+  - entities:
+    - address: "\u4E3B\u5367"
+    intent: inform_room
+  - action: action_controlactemp
+  story: "\u7A7A\u8C03\u6E29\u5EA6\u8C03\u9AD8\u70B9/\u8BE2\u95EE\u5177\u4F53\u7A7A\
+    \u8C03/\u56DE\u590D\u4E3B\u5367"
+- steps:
+  - intent: latent_control_temp
+  - action: action_latent_control_temp
+  - intent: affirm
+  - action: action_affirm_opensetaircondition
+  story: "\u9690\u5F0F\u8868\u8FBE\u60F3\u8981\u6253\u5F00\u7A7A\u8C03\u8BBE\u5907\
+    /\u8BE2\u95EE\u662F\u5426\u6253\u5F00/\u786E\u8BA4/\u6253\u5F00\u7A7A\u8C03/\u5236\
+    \u70ED/\u5236\u51B7\u6A21\u5F0F"
+- steps:
+  - intent: latent_control_temp
+  - action: action_latent_control_temp
+  - intent: deny
+  - action: action_deny_opensetaircondition
+  story: "\u9690\u5F0F\u8868\u8FBE\u60F3\u8981\u6253\u5F00\u7A7A\u8C03\u8BBE\u5907\
+    /\u8BE2\u95EE\u662F\u5426\u6253\u5F00/\u62D2\u7EDD/\u69FD\u4F4D\u6E05\u7A7A"

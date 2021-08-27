@@ -1,0 +1,547 @@
+version: "2.0"
+stories:
+# 打开空调相关Story
+- story: open AC--具体空调设备指明
+  steps:
+  - intent: Control-AC_Open
+    entities:
+    - address: 主卧
+    - device: 空调
+    - operation: 打开
+  - action: action_open_ac
+
+- story: open AC2--未指明具体空调设备/询问具体设备/确认空调/执行
+  steps:
+  - intent: Control-AC_Open
+    entities:
+    - device: 空调
+    - operation: 打开
+  - action: action_open_ac
+  - intent: inform_ac
+    entities:
+    - address: 客厅
+    - device: 空调
+  - action: action_open_ac
+
+- story: open AC3--未指明具体空调设备/询问具体设备/确认房间/执行
+  steps:
+  - intent: Control-AC_Open
+    entities:
+    - device: 空调
+    - operation: 打开
+  - action: action_open_ac
+  - intent: inform_room
+    entities:
+    - address: 客厅
+  - action: action_open_ac
+
+- story: open AC4--未指明具体空调设备/询问具体设备/确认全部的空调/执行
+  steps:
+  - intent: Control-AC_Open
+    entities:
+    - device: 空调
+    - operation: 打开
+  - action: action_open_ac
+  - intent: inform_range
+    entities:
+    - range: 所有
+  - action: action_open_ac
+
+- story: open AC3--指明所有的空调
+  steps:
+  - intent: Control-AC_Open
+    entities:
+    - range: 所有
+    - device: 空调
+    - operation: 打开
+  - action: action_open_ac
+
+- story: 硬编码回复空调打开--澄清具体设备/用户确认设备/执行
+  steps:
+  - intent: Control-AC_Open
+    entities:
+    - operation: 打开
+    - device: 空调 
+  - action: action_open_ac
+  - intent: inform_ac 
+    entities:
+    - device: 空调
+    - address: 客厅
+  - action: action_open_ac
+
+- story: 硬编码回复空调设备打开--澄清具体设备/用户确认房间/执行
+  steps:
+  - intent: Control-AC_Open
+    entities:
+    - operation: 打开
+    - device: 空调
+  - action: action_open_ac
+  - intent: inform_room
+    entities:
+    - address: 客厅
+  - action: action_open_ac
+
+# 关闭空调相关 Story
+- story: close AC1--具体指明空调设备
+  steps:
+  - intent: Control-AC_Close
+    entities:
+    - address: 客厅
+    - device: 空调
+    - operation: 关闭
+  - action: action_close_ac
+
+- story: close AC2--未指明具体空调设备，需要进一步澄清
+  steps:
+  - intent: Control-AC_Close
+    entities:
+    - device: 空调
+    - operation: 关闭
+  - action: action_close_ac
+  - intent: inform_ac
+    entities:
+    - address: 客厅
+    - device: 空调
+  - action: action_close_ac
+
+- story: close AC3--指明所有的空调设备
+  steps:
+  - intent: Control-AC_Close
+    entities:
+    - range: 所有
+    - device: 空调
+    - operation: 关闭
+  - action: action_close_ac
+
+- story: 硬编码回复控制空调关闭 确认具体空调设备
+  steps:
+  - intent: Control-AC_Close
+    entities:
+    - operation: 关闭
+    - device: 空调
+  - action: action_close_ac
+  - intent: inform_ac
+    entities:
+    - device: 空调
+    - address: 书房
+  - action: action_close_ac
+
+
+- story: 硬编码回复控制空调关闭 确认具体房间
+  steps:
+  - intent: Control-AC_Close
+    entities:
+    - operation: 关闭
+    - device:  空调
+  - action: action_close_ac
+  - intent: inform_room
+    entities:
+    - address: 主卧 
+  - action: action_close_ac
+
+
+- story: 硬编码回复控制空调关闭 确认全部的空调
+  steps:
+  - intent: Control-AC_Close
+    entities:
+    - operation: 关闭
+    - device: 空调
+  - action: action_close_ac
+  - intent: inform_range
+    entities:
+    - range: 所有
+  - action: action_close_ac
+
+
+# 空调模式调节Story
+- story: 控制空调模式/(槽位信息齐全)/直接执行Action
+  steps:
+  - intent: Control-AC_Mode
+    entities:
+    - address: 客厅
+    - device: 空调
+    - mode: 制热模式
+  - action: acmode_form
+
+- story: 调整空调模式(未指明具体房间空调但目标模式齐全)/询问房间(具体空调)/确认/执行
+  steps:
+  - intent: Control-AC_Mode
+    entities:
+    - mode: 节能模式
+  - action: acmode_form
+  - intent: inform_ac
+    entities:
+    - address: 客厅
+    - device: 空调
+  - action: acmode_form
+  
+- story: interactive_story_1 调整空调模式(未指明具体空调设备)/询问具体设备/回复房间/调用acmode_form进行执行
+  steps:
+  - intent: Control-AC_Mode
+    entities:
+    - device: 空调
+    - mode: 节能模式
+  - action: acmode_form
+  - intent: inform_ac
+    entities:
+    - address: 主卧
+    - device: 空调
+  - action: acmode_form
+
+- story: 空调模式控制/打开/调成xx模式/关闭xx模式
+  steps:
+  - intent: Control-AC_Open
+    entities:
+    - operation: 打开
+    - device: 空调
+    - address: 书房
+  - action: action_open_ac
+  - intent: Control-AC_Mode
+    entities:
+    - mode: 节能模式
+  - action: acmode_form
+  - intent: Control-AC_Mode
+    entities:
+    - mode: 左右扫风
+  - action: acmode_form
+
+# 空调定时操作
+- story: 控制空调定时操作，所有信息齐全/无需澄清槽位信息/直接执行
+  steps:
+  - intent: Control-AC_Timing
+    entities:
+    - time: 一小时
+    - operation: 关闭
+    - device: 空调
+    - address: 主卧
+  - action: actiming_form
+
+- story: 控制空调定时操作 定时关闭空调(具体空调设备信息未指明(需要明确主卧/客厅/书房) 其他信息齐全)/澄清具体设备/用户回复具体 [空调] /继续执行
+  steps:
+  - intent: Control-AC_Timing
+    entities:
+    - time: 一小时
+    - operation: 关闭
+    - device: 空调
+  - action: actiming_form
+  - intent: inform_ac
+    entities:
+      - device: 空调
+      - address: 主卧
+  - action: actiming_form
+
+- story: 控制空调定时操作 定时关闭空调(空调信息未指明 其他信息齐全)/澄清具体设备/用户回复 [房间] /继续执行
+  steps:
+  - intent: Control-AC_Timing
+    entities:
+    - time: 一小时
+    - operation: 关闭
+    - device: 空调
+  - action: actiming_form
+  - intent: inform_room
+    entities:
+    - address: 主卧
+  - action: actiming_form
+
+- story: 控制空调定时操作(定时时间，定时操作，目标设备都不明确)/澄清设备/澄清操作/澄清时间
+  steps:
+  - intent: Control-AC_Timing
+  - action: actiming_form
+  - intent: Control-AC_Timing
+    entities:
+    - time: 一小时
+    - operation: 关闭
+    - device: 空调
+  - action: actiming_form
+  - intent: inform_ac
+    entities:
+      - device: 空调
+      - address: 主卧
+  - action: actiming_form
+
+- story: 空调定时操作,询问具体设备,回复房间名称
+  steps:
+  - intent: Control-AC_Timing
+    entities:
+    - time: 五小时
+    - operation: 关闭
+    - device: 空调
+  - action: actiming_form
+  - intent: inform_room
+    entities:
+    - address: 主卧
+  - action: actiming_form
+
+- story: 打开空调(哪个空调设备)/主卧的(正在为您打开主卧空调)/定时一小时后关闭(已为您将主卧空调设置一小时后关闭)
+  steps:
+  - intent: Control-AC_Open
+    entities:
+    - operation: 打开
+    - device: 空调
+  - action: action_open_ac
+  - intent: inform_room
+    entities:
+    - address: 主卧
+  - action: action_open_ac
+  - intent: Control-AC_Timing
+    entities:
+    - time: 一小时
+    - operation: 关闭
+  - action: actiming_form
+
+#空调风速控制
+- story: 调整空调的风速(所有信息齐全，具体的空调设备，风速调高或者是调低)/执行
+  steps:
+  - intent: Control-AC_Wind
+    entities:
+    - operation: 增大
+    - target: 风速
+    - device: 空调
+    - address: 客厅
+  - action: action_controlDeviceWind
+
+- story: 调整空调的风速(所有信息齐全，具体的空调设备，风速具体参数值(最大风速/最小风速/中等风速))/执行
+  steps:
+  - intent: Control-AC_Wind
+    entities:
+    - sensorvalue: 最大
+    - target: 风速 
+    - device: 客厅
+    - address: 客厅
+  - action: action_controlDeviceWind
+
+- story: 调整空调的风速(无指明具体空调设备)/确认 房间 /执行
+  steps:
+  - intent: Control-AC_Wind
+    entities:
+    - operation: 调高
+    - target: 风速
+    - device: 空调
+  - action: action_controlDeviceWind
+  - intent: inform_room
+    entities:
+    - address: 主卧
+  - action: action_controlDeviceWind
+
+
+- story: 调整空调的风速(无指明具体空调设备)/确认 房间 /执行
+  steps:
+  - intent: Control-AC_Wind
+    entities:
+    - operation: 调高
+    - device: 空调
+    - target: 风速
+  - action: action_controlDeviceWind
+  - intent: inform_room
+    entities:
+    - address: 主卧
+  - action: action_controlDeviceWind
+
+- story: 调整主卧空调的风速(有具体设备无操作信息)/确认 操作 /执行
+  steps:
+  - intent: Control-AC_Wind
+    entities:
+    - operation: 调高
+    - device: 空调
+    - address: 主卧
+    - target: 风速
+  - action: action_controlDeviceWind
+
+- story: 调整空调的风速(无指明具体空调设备)/确认 设备 /执行
+  steps:
+  - intent: Control-AC_Wind
+    entities:
+    - operation: 调高
+    - device: 空调
+    - target: 风速
+  - action: action_controlDeviceWind
+  - intent: inform_ac
+    entities:
+    - device: 空调
+    - address: 主卧
+  - action: action_controlDeviceWind
+
+
+- story: interactive_story_1 调整空调风速/打开/调到最大/调到最小/询问设备/确认设备/执行
+  steps:
+  - intent: Control-AC_Open
+    entities:
+    - operation: 打开
+    - device: 空调
+    - address: 主卧
+  - action: action_open_ac
+  - intent: Control-AC_Wind
+    entities:
+    - sensorvalue: 最大
+    - target: 风速
+  - action: action_controlDeviceWind
+  - intent: Control-AC_Wind
+    entities:
+    - sensorvalue: 最小
+    - target: 风速
+  - action: action_controlDeviceWind
+  - intent: inform_ac
+    entities:
+    - device: 空调
+    - address: 主卧
+  - action: action_controlDeviceWind
+
+- story: interactive_story_1 打开书房空调/书房空调风速调高
+  steps:
+  - intent: Control-AC_Open
+    entities:
+    - operation: 打开
+    - device: 空调
+    - address: 书房
+  - action: action_open_ac
+  - intent: Control-AC_Wind
+    entities:
+    - device: 空调
+    - address: 书房
+    - operation: 增大
+    - target: 风速
+  - action: action_controlDeviceWind
+
+# 空调温度控制Story
+- story: 空调温度控制  所有信息齐全 xx空调 温度 调高到 X度
+  steps:
+  - intent: Control-AC_Temp
+    entities:
+    - device: 空调
+    - address: 主卧
+    - operation: 调高到
+    - temperature: 二十度
+  - action: action_controlactemp
+
+
+- story: 空调温度控制  所有信息齐全 xx空调 温度 调高 X度
+  steps:
+  - intent: Control-AC_Temp
+    entities:
+    - address: 客厅
+    - device: 空调
+    - operation: 调高
+    - temperature: 一度
+  - action: action_controlactemp
+
+
+- story: interactive_story_1 空调温度控制-打开/温度调节(调高到 X度) 设备信息齐全 无需澄清/温度调节(调高 X度)/关闭
+  steps:
+  - intent: Control-AC_Open
+    entities:
+    - device: 空调
+    - address: 主卧
+    - operation: 打开
+  - action: action_open_ac
+  - intent: Control-AC_Temp
+    entities:
+    - device: 空调
+    - operation: 调高到
+    - temperature: 二十五度
+  - action: action_controlactemp
+  - intent: Control-AC_Temp
+    entities:
+    - device: 空调
+    - operation: 调高
+    - temperature: 两度
+  - action: action_controlactemp
+  - intent: Control-AC_Close
+    entities:
+    - operation: 关闭
+    - device: 空调
+  - action: action_close_ac
+
+
+- story:  空调温度控制/温度调节(调高到 X度)device信息不全，需要进行澄清(澄清的情况为 设备)/根据填充的槽位信息进行执行
+  steps:
+  - intent: Control-AC_Temp
+    entities:
+    - device: 空调
+    - operation: 调高到
+    - temperature: 二十五度
+  - action: action_controlactemp
+  - intent: inform_ac
+    entities:
+    - device: 空调
+    - address: 主卧
+  - action: action_controlactemp
+
+
+- story:  空调温度控制/温度调节(调高到 X度)device信息不全，需要进行澄清(澄清的情况为 房间)/温度调节(调高 X度)
+  steps:
+  - intent: Control-AC_Temp
+    entities:
+    - device: 空调
+    - operation: 调高到
+    - temperature: 二十五度
+  - action: action_controlactemp
+  - intent: inform_room
+    entities:
+    - address: 主卧
+  - action: action_controlactemp
+  
+
+- story: 打开空调/主卧空调/把温度(调高未识别到)/AC_temp
+  steps:
+  - intent: Control-AC_Open
+    entities:
+    - operation: 打开
+    - device: 空调
+  - action: action_open_ac
+  - intent: inform_ac
+    entities:
+    - address: 主卧
+  - action: action_open_ac
+  - intent: Control-AC_Temp
+    entities:
+    - temperature: 二十五度
+    - target: 温度
+  - action: action_controlactemp
+  
+  
+- story: 打开空调/主卧空调/把温度(调高识别到)/AC_temp
+  steps:
+  - intent: Control-AC_Open
+    entities:
+    - operation: 打开
+    - device: 空调
+  - action: action_open_ac
+  - intent: inform_ac
+    entities:
+    - address: 客厅
+  - action: action_open_ac
+  - intent: Control-AC_Temp
+    entities:
+    - target: 温度
+    - operation: 调高
+  - action: action_controlactemp
+
+- story: 空调温度调高点/询问具体空调/回复主卧
+  steps:
+  - intent: Control-AC_Temp
+    entities:
+    - device: 空调
+    - target: 温度
+    - operation: 调高
+  - action: action_controlactemp
+  - intent: inform_room
+    entities:
+    - address: 主卧
+  - action: action_controlactemp
+
+
+# 隐式意图相关Story回复
+- story: 隐式表达想要打开空调设备/询问是否打开/确认/打开空调/制热/制冷模式
+  steps:
+  - intent: latent_control_temp
+  - action: action_latent_control_temp
+  - intent: affirm
+  - action: action_affirm_opensetaircondition
+
+- story: 隐式表达想要打开空调设备/询问是否打开/拒绝/槽位清空
+  steps:
+  - intent: latent_control_temp
+  - action: action_latent_control_temp
+  - intent: deny
+  - action: action_deny_opensetaircondition
+

@@ -1,0 +1,19 @@
+version: "2.0"
+stories:
+- story: 抽油烟机的开关状态控制自定义对话模板 打开/关闭 抽油烟机
+  steps:
+  - intent: Control-RangHood_State
+    entities:
+    - operation: 打开
+    - device: 抽油烟机
+  - action: action_rangehood
+
+- story: 抽油烟机的开关状态控制自定义对话模板 打开/关闭 抽油烟机 强力模式
+  steps:
+  - intent: Control-RangHood_State
+    entities:
+    - operation: 打开
+    - device: 抽油烟机
+    - mode: 强力模式
+  - action: action_rangehood
+
