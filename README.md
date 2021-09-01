@@ -15,8 +15,6 @@ Overview
 
 1) Embedding -- Bilstm -- Layernormal -- GlobalConv -- Dense 神经网络进行搭建.
 
-2) Embedding -- Encoder -- Dense 神经网络模型进行搭建，且Encoder部分采用参数复用进一步缩小参数量.
-
 # 二 状态追踪
 
 根据家居场景设备的不同，构建不同的状态表，进行场景隔离。减少多轮对话中不同场景间的跳转对动作选择的影响，以及系统回复是槽位值的抽取。
