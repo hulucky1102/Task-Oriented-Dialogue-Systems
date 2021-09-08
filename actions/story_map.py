@@ -4,7 +4,7 @@ from collections import Counter
 with open('/home/ai/hgm/Smart_Home/stories/stories_map.json', mode='r', encoding='utf-8') as f:
     stories = json.load(f)
 
-def story2action(story, stories, intent):
+def story2action(story, stories):
 
     flag = 0
     action = []

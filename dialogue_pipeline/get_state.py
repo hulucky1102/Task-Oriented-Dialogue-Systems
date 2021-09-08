@@ -7,7 +7,30 @@ from dialogue_pipeline.State_Form import *
 
 state_dic = dic
 
-# 得到当前设备相匹配的状态表
+# 判断是否支持当前设备
+def check_device(intent,device_name,state_dic,device=[]):
+
+    if re.findall(device_name,intent) :
+        match_device = re.findall(device_name, intent)
+        device_slot = match_device[0] + '_slot_state'
+        if state_dic[device_slot]['device'] != '':
+            flag = 1
+        else:
+            flag = 0
+
+    elif device != []:
+        device_slot = device[0] + '_slot_state'
+        print('device_slot: ', state_dic[device_slot]['device'])
+        if state_dic[device_slot]['device'] != '':
+            flag = 1
+        else:
+            flag = 0
+    else:
+        flag = 0
+    return flag
+
+
+# 得到当前设备相匹配的状态表 intent entities action
 def get_device_form(input,device_name,device = []):
 
     intent = input[0]
@@ -21,6 +44,8 @@ def get_device_form(input,device_name,device = []):
         match_device = re.findall(device_name,intent)
     elif device != []:
         match_device = device
+    else:
+        match_device = [ ]
 
     for key in state_dic:
         if match_device[0] in key:
@@ -28,22 +53,29 @@ def get_device_form(input,device_name,device = []):
                 entities_dic = key
             elif 'Intent' in key:
                 intent_dic = key
-            elif 'action' in key:
+            # elif 'action' in key:
+            #     action_dic = key
+            else:
                 action_dic = key
-        # else:
-        #     raise Exception('the equipment value not in Device_List').
 
     for key, val in entities.items():
         state_dic[entities_dic].update({key:val})
 
-    if intent != [] and intent not in state_dic[intent_dic]:
+    if intent != []:
         state_dic[intent_dic].append(intent)
-    if action != [] and action not in state_dic[action_dic]:
+    if action != []:
         state_dic[action_dic].append(action)
+
+
+    # if intent != [] and intent not in state_dic[intent_dic]:
+    #     state_dic[intent_dic].append(intent)
+    # if action != [] and action not in state_dic[action_dic]:
+    #     state_dic[action_dic].append(action)
 
     return state_dic[intent_dic], state_dic[entities_dic],state_dic[action_dic], match_device
 
-def get_DM_input(input,device= [],device_name = device_name):
+# 将状态表中 意图 实体 动作 数据进行处理符合DM模型输入
+def  get_DM_input(input,device= [],device_name = device_name):
 
     DM_intent, entities_dic, DM_action, match_device = get_device_form(input,device_name,device)
 
@@ -86,7 +118,9 @@ def get_DM_input(input,device= [],device_name = device_name):
 
     return [DM_action, DM_entities,DM_intent],match_device,state_dic
 
-def From_Reset(match_device,state_dic = state_dic):
+
+# 状态表 状态重置
+def From_Reset(match_device,state_dic,flags=0):
 
     for key in state_dic:
         if match_device[0] in key:
@@ -97,16 +131,19 @@ def From_Reset(match_device,state_dic = state_dic):
             elif 'action' in key:
                 action_dic = key
 
-    if len(state_dic[intent_dic]) >3:
+    while len(state_dic[intent_dic]) > 2:
+        state_dic[intent_dic].pop()
+    while  len(state_dic[action_dic]) > 2:
+        state_dic[action_dic].pop()
+    if flags ==1:
         state_dic[intent_dic] = []
-    # state_dic[action_dic] = []
+        state_dic[action_dic] = []
+        for key,val in state_dic[entities_dic].items():
+            if key == 'device' or key == 'address':
+                pass
+            else:
+                state_dic[entities_dic].update({key:''})
 
-    for key,val in state_dic[entities_dic].items():
-        if key == 'device' or key == 'address' or key == 'operation':
-            pass
-        else:
-            state_dic[entities_dic].update({key:''})
-    return state_dic
 
 
 
