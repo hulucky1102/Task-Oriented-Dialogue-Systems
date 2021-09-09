@@ -36,7 +36,7 @@
  
  *2 actions story_map  将输入与story数据集进行匹配，匹配成功则输出相对应的action
  
-### action回复
+### action回复样例
 
  *1 actions Action 定义各类回复
  
@@ -80,8 +80,6 @@
             # 状态表单更新  falgs标志位判断任务是否完成，完成则清空状态表中非必须槽位
             trackers.From_Reset(device, state_dic, flags)
 
-
-### 样例 
 
 
 **********************第1轮对话 开始**********************  
