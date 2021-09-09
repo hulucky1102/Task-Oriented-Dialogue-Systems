@@ -22,6 +22,7 @@ def Dialogue(input_text,state_dic = dic,device=[]):
         tracker, device, _ = trackers.get_DM_input([intent, entities_dic], device)
         # device状态判断
         flag = trackers.check_device(intent, device_name, state_dic,device)
+        # 判断是否支持当前设备 以及设备槽位是否填充
         if flag == 0:
             action = 'No_device'
             bot_utter = action_basic_run(action)

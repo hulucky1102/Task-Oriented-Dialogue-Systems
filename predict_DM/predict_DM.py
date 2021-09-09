@@ -15,7 +15,7 @@ params = {
     'drops' : [0.1]
          }
 
-with open('/home/ai/hgm/Smart_Home/DM_model/DM_char.json', mode='r', encoding='utf-8') as f:
+with open('./DM_model/DM_char.json', mode='r', encoding='utf-8') as f:
     dicts = json.load(f)
 
 action2id = dicts['action2id']
@@ -45,7 +45,7 @@ user_intent_len = len(intent2id)
 #
 # model.load_weights('/home/ai/hgm/home_nlp/DM_model_weight/DM_weight_629.h5')
 
-model_dir = '/home/ai/hgm/Smart_Home/DM_model_weight/DM_weight.h5'
+model_dir = './DM_model_weight/DM_weight.h5'
 model = tf.keras.models.load_model(model_dir)
 
 

@@ -10,7 +10,7 @@ params = {
     'drops' : [0.1]
          }
 
-with open('/home/ai/hgm/Smart_Home/ner_model/char_conv.json', mode='r', encoding='utf-8') as f:
+with open('./ner_model/char_conv.json', mode='r', encoding='utf-8') as f:
     dicts = json.load(f)
 
 char2id = dicts['char2id']
@@ -50,7 +50,7 @@ def ln(c_in):
 # model = tf.keras.Model(text_inputs,[pre_intent,pre_slot])
 #
 # model.load_weights('/home/ai/hgm/home_nlp/ner_model_weight/model_conv_625.h5')
-model_dir = '/home/ai/hgm/Smart_Home/ner_model_weight/model_conv.h5'
+model_dir = './ner_model_weight/model_conv.h5'
 
 model = tf.keras.models.load_model(model_dir)
 

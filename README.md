@@ -1,36 +1,82 @@
-Overview
--- **家居领域任务导向型对话系统 ** -针对嵌入式离线所提出的家居领域任务导向型对话系统基本架构如下：
+## **家居领域对话系统**
 
 简单实现设备有 空调、窗帘、灯、电饭煲、风扇、微波炉、加湿器 
+加入固定语句，实现基本打招呼与功能询问。
 
-*********************************************************
-** 存在一些问题， 不是最终版本。只是给没思路的同学一个简单的思路 **
-*********************************************************
+### 意图识别和实体抽取
+ *1 ner_model 模型文件
+ 
+ *2 ner_model_weight 模型权重
+ 
+ *3 forward_ner_model 模型前向
+ 
+ *4 predict_ner 模型预测
+ 
+### 状态追踪
 
-意图识别实体抽取 -- 状态追踪 -- 动作选择 -- 系统回复提取出状态表中相对应的槽值
+ *1 dialogue_pipeline  State_Form.py 设备状态表
+ 
+ *2 dialogue_pipeline  get_state.py  得到当前设备，将意图和槽位传入状态表。
+ 
+### 动作选择
 
-# 一 意图识别和实体抽取
+一、 模型
 
-意图识别和实体抽取采用了两种模型架构：
+ *1 DM_model 模型文件
+ 
+ *2 DM_model_weight 模型权重
+ 
+ *3 forward_DM_model 模型前向
+ 
+ *4 predict_DM 模型预测
 
-1) Embedding -- Bilstm -- Layernormal -- GlobalConv -- Dense 神经网络进行搭建.
+二、 规则
 
-# 二 状态追踪
+ *1 DM_model construct_story_map.ipynb  将story数据集构建为story_map
+ 
+ *2 actions story_map  将输入与story数据集进行匹配，匹配成功则输出相对应的action
+ 
+### action回复
 
-根据家居场景设备的不同，构建不同的状态表，进行场景隔离。减少多轮对话中不同场景间的跳转对动作选择的影响，以及系统回复是槽位值的抽取。
+ *1 actions Action 定义各类回复
+ 
+ *2 actions Universal_expression 定义各类固定回复
+ 
+ *3 actions Run_action 根据action抽取相对应槽值进行回复，当缺少必要槽值时进行询问
+ 
+### main.py
 
-# 三 动作选择
+    # 意图识别槽位抽取 
+    intent, entities, entities_dic = ner.predict(input_text)
+    # 根据意图判断是闲聊还是设备控制
+    if re.findall(chatbot, intent):
+        action = intent
+        bot_utter = action_basic_run(action)
+    else:
+        # 状态追踪 继承intent entities
+        tracker, device, _ = trackers.get_DM_input([intent, entities_dic], device)
+        # device状态判断
+        flag = trackers.check_device(intent, device_name, state_dic,device)
+        # 判断是否支持当前设备 以及设备槽位是否填充，减少回复错误概率
+        if flag == 0:
+            action = 'No_device'
+            bot_utter = action_basic_run(action)
+        else:
 
-动作选择采用了两种方式（先规则后模型）：
+            # 判断是否能进行路径匹配
+            action, flag_1 = story2action(tracker[1:], stories)
+            if flag_1 == 0:
+                action = [DM.predict(tracker)]
+                print('模式选择 mode')
+            else:
+                action = action
+                print('模式选择 rule')
+            # 检查action设备是否与intent一致，intent为表明设备时继承上一轮设备
+            action = i2c_check(intent, action, device_name, device)
+            #  状态追踪 继承action
+            tracker, device, state_dic = trackers.get_DM_input([intent, entities_dic, action], device)
+            # 系统回复
+            bot_utter, flags = action_run(action, state_dic)
+            # 状态表单更新  falgs标志位判断任务是否完成，完成则清空状态表中非必须槽位
+            trackers.From_Reset(device, state_dic, flags)
 
-1) 通过story数据集构建训练数据，数据采用one-hot对输入进行编码。
-Input -- Embedding -- Bilstm -- Layernormal -- GlobalConv -- Dense
-
-Action： 模型前一轮的Action输出，Action只追溯到当前意图所对应的前一轮。 Entities： 槽值取最多前三轮槽值所对应的Key，不关注槽位所提取出的具体值，只关注于槽位是否被填充。 Intent： 意图的取值为当前轮意图的输出以及前一轮的意图 Label : 标签为当前轮的Action
-
-2) 通过对Story处理构建为规则映射列表，将NER的输出在列表中进行匹配。若匹配成功取出相对应的Action，否则将NER的输出输入模型进行Acton判断，由于意图可能存在未表明设备的情形，因此在当前轮操作设备未明确的情况下采取设备状态继承。
-
-
-# 四 系统回复
-
-根据Action提取出状态表中相对应的槽值并选择相对应的预设动作。当关键值缺失时进行必要的询问。
