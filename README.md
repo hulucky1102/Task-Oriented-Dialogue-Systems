@@ -81,6 +81,7 @@
             trackers.From_Reset(device, state_dic, flags)
 
 
+###样例
 **********************第1轮对话 开始**********************  
 User:你好  
  
@@ -103,5 +104,21 @@ Bot Utter :  正在为您打开客厅窗帘
 
 **********************第5轮对话 开始**********************  
 User:定时三小时后关闭窗帘  
-
+intent_source:  0.8409069   
+108
+pre_intent:  Control-Curtain_Timing  
+109
+intent:Control-Curtain_Timing   
+110
+slot:{'device': '窗帘', 'operation': '关闭', 'time': '三小时'}  
+111
+text: [['PAD'], ['address', 'operation', 'time', 'device'], ['Control-Curtain_Timing']]   
+112
+action:Control-Fan_Timing   
+113
+模式选择 mode  
+114
+match_device: ['Curtain']  
+115
+action : Control-Curtain_Timing   
 Bot Utter :  已为您定时三小时后关闭客厅窗帘  
