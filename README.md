@@ -82,17 +82,17 @@
 
 
 **********************第1轮对话 开始**********************
-####User:你好  
+User:你好  
 
 intent_source:  0.99046725  
 pre_intent:  greet     
 intent:greet    
  slot:{}  
  
-####Bot Utter :  您好！请问我可以帮到您吗？  
+Bot Utter :  您好！请问我可以帮到您吗？  
 
 **********************第2轮对话 开始**********************  
-####User:打开空调  
+User:打开空调  
 
 intent_source:  0.9990502  
 pre_intent:  Control-AC_State  
@@ -102,10 +102,10 @@ intent:Control-AC_State
 match_device: ['AC']  
 action : Control-AC_State   
 
-####Bot Utter :  请问要控制哪个房间的空调  
+Bot Utter :  请问要控制哪个房间的空调  
 
 **********************第3轮对话 开始**********************  
-####User:主卧  
+User:主卧  
 
 intent_source:  0.9993043   
 pre_intent:  inform_address  
@@ -116,10 +116,10 @@ device_slot:  空调
 match_device: ['AC']  
 action : Control-AC_State   
 
-####Bot Utter :  正在为您打开主卧空调  
+Bot Utter :  正在为您打开主卧空调  
 
 **********************第4轮对话 开始**********************  
-####User:打开客厅窗帘  
+User:打开客厅窗帘  
 
 intent_source:  0.96338695  
 pre_intent:  Control-Curtain_State  
@@ -129,10 +129,10 @@ intent:Control-Curtain_State
 match_device: ['Curtain']  
 action : Control-Curtain_State   
 
-####Bot Utter :  正在为您打开客厅窗帘  
+Bot Utter :  正在为您打开客厅窗帘  
 
 **********************第5轮对话 开始**********************  
-####User:定时三小时后关闭窗帘  
+User:定时三小时后关闭窗帘  
 
 intent_source:  0.8409069   
 pre_intent:  Control-Curtain_Timing  
@@ -144,4 +144,4 @@ action:Control-Fan_Timing
 match_device: ['Curtain']  
 action : Control-Curtain_Timing   
 
-####Bot Utter :  已为您定时三小时后关闭客厅窗帘  
+Bot Utter :  已为您定时三小时后关闭客厅窗帘  
